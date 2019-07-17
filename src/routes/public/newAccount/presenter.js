@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components'
 import { BigText, DeepKoamaruText, NormalText, MiddleText, Row, Column, SeaBrookText } from '../../../constants/styledComponents'
-import { Divider, Input, Radio, Button } from 'antd'
+import { Divider, Input, Radio, Button, Select } from 'antd'
 import { DateInput } from "@opuscapita/react-dates"
+
+const { Option } = Select;
 
 const Container = styled.div`margin-top:100px;
     min-height:500px;
@@ -124,6 +126,69 @@ const Presenter = () => <Container>
                 <Input.Password />
             </Column>
         </Row>
+        <Divider style={{
+            marginTop: "60px"
+        }} />
+        <Row>
+            <Column>
+                <MiddleText style={{
+                    marginBottom: "16px"
+                }}>이메일</MiddleText>
+                <Row>
+                    <Input style={{
+                        width: "185px",
+                        marginRight: "20px"
+                    }} placeholder={'email id'} />
+                    <NormalText style={{
+                        marginRight: "20px"
+                    }}>@</NormalText>
+                    <Select value={'google.com'} style={{
+                        width: "300px"
+                    }}>
+                        <Option value="naver.com">naver.com</Option>
+                        <Option value="google.com">google.com</Option>
+                    </Select>
+                </Row>
+
+                <Row>
+                    <SeaBrookText style={{
+                        marginRight: "20px",
+
+                    }}>입력하신 이메일로 이메일을 수신하겠습니까? </SeaBrookText>
+                    <Radio.Group>
+                        <Radio value={'1'}>예</Radio>
+                        <Radio value={'2'}>아니오</Radio>
+                    </Radio.Group>
+                </Row>
+
+            </Column>
+
+        </Row>
+        <Divider style={{
+            marginTop: "50px"
+        }} />
+        <Row>
+            <Column style={{
+                marginRight: "30px"
+            }}>
+                <MiddleText>소속 기관</MiddleText>
+            </Column>
+            <Column>
+                <Row style={{
+                    marginBottom: "10px"
+                }}>
+                    <Radio.Group>
+                        <Radio value={'기관'}>기관</Radio>
+                        <Radio value={'개인'}>개인</Radio>
+                    </Radio.Group>
+                </Row>
+                <Input />
+                <NormalText>개인 등록자는 일부 NTIS 서비스에 대하여 사용권한이 제한될 수 있습니다.</NormalText>
+            </Column>
+        </Row>
+        <Divider style={{
+            marginTop: "50px"
+        }} />
     </Inner>
 </Container>
 

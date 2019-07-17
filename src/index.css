@@ -29,6 +29,7 @@ code {
     height: 32px !important;
     border-radius: 3px !important;
     width: 167px !important;
+    padding-left: 10px;
 }
 
 .opuscapita_date-input__variants-btn {
