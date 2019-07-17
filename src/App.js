@@ -1,26 +1,51 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from "styled-components";
+import PrivateComponent from './components/privateComponent'
+import PublicComponent from './components/publicComponent'
+import NavigationBar from "./components/global/navigationBar"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const Container = styled.div``;
+
+class AppContainer extends React.Component {
+
+  state = {
+    isLoggedIn: false
+  }
+
+  componentDidMount() {
+    const { checkLogin } = this;
+
+    checkLogin()
+  }
+
+  render() {
+    const { isLoggedIn } = this.state;
+    return <Container>
+      <div style={{
+        position: "absolute",
+        top: 0,
+        width: "100%"
+      }}>
+
+        <NavigationBar isLoggedIn={isLoggedIn} />
+      </div>
+      {isLoggedIn ? <PrivateComponent /> : <PublicComponent />}
+    </Container>
+
+  }
+
+  checkLogin = () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.setState({
+        isLoggedIn: true
+      })
+    } else {
+      this.setState({
+        isLoggedIn: false
+      })
+    }
+  }
 }
 
-export default App;
+export default AppContainer;

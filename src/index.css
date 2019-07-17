@@ -5,9 +5,32 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-width: 1250px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+
+.ant-btn.ant-btn-primary {
+  background-color:  #30336b;
+  border-color: #30336b;
+}
+
+.ant-btn.ant-btn-primary:hover, .ant-btn.ant-btn-primary:focus {
+  background-color:  #30336b;
+  border-color: #30336b;
+}
+
+.opuscapita_date-input-field input {
+    border: 1px solid gainsboro !important;
+    height: 32px !important;
+    border-radius: 3px !important;
+    width: 167px !important;
+}
+
+.opuscapita_date-input__variants-btn {
+  display: none;
 }
