@@ -26,7 +26,14 @@ const Presenter = ({ isLoggedIn }) => <Container>
         width: "20%",
         fontWeight: "900",
         fontSize: "19px"
-    }}>R & D 정보 공유 시스템</Row>
+    }}>
+        <a href="/" style={{
+            color: Colors.fontColor
+        }}>
+            R & D 정보 공유 시스템
+        </a>
+
+    </Row>
     <Row style={{
         width: "60%"
     }}></Row>
