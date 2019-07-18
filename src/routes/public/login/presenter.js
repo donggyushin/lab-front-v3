@@ -26,16 +26,23 @@ const Title = styled.div`
     background-color:${Colors.deepKoamaru};
     color:white;
     border-radius:50%;
-    padding:20px;
+    position: relative;
+    top: 29px;
+    padding: 22px;
+    font-size: 20px;
     font-weight:900;
 `;
 
 const Presenter = ({ enterIconLoading, iconLoading }) => <Container >
     <Card>
-        <Title>KISTI</Title>
+        {/* <Title>KISTI</Title> */}
+        <img style={{
+            width: 148
+        }} src={require('../../../assets/kisti logo2.png')} />
         <Input style={{
-            marginTop: "80px",
-            marginBottom: "20px"
+            marginTop: "60px",
+            marginBottom: "20px",
+            fontSize: 17
         }}
             placeholder={'아이디를 입력해주세요. '}
         />
@@ -47,6 +54,10 @@ const Presenter = ({ enterIconLoading, iconLoading }) => <Container >
             icon="poweroff"
             loading={iconLoading}
             onClick={enterIconLoading}
+            style={{
+                position: 'relative',
+                top: '30px'
+            }}
         >
             로그인
         </Button>

@@ -24,7 +24,41 @@ const Inner = styled.div`
 
 
 const Presenter = ({ iconLoadingStart,
-    iconLoading }) => <Container>
+    iconLoading,
+    name,
+    birth,
+    gender,
+    is_korean,
+    ename,
+    is_stay_in_korea,
+    id,
+    pw,
+    pw2,
+    email_id,
+    email_domain,
+    is_mailing,
+    has_organization,
+    zipcode,
+    road_addr,
+    addr,
+    cp_no1,
+    cp_no2,
+    cp_no3,
+    tel_no1,
+    tel_no2,
+    tel_no3,
+    fax_no1,
+    fax_no2,
+    fax_no3,
+    usertype,
+    job,
+    dept,
+    position,
+    organization,
+    recommender,
+    instit_job,
+    searchPostCodeButtonTapped
+}) => <Container>
 
         <Inner>
             <Row>
@@ -44,7 +78,7 @@ const Presenter = ({ iconLoadingStart,
                     <MiddleText style={{
                         marginBottom: "16px"
                     }}>이름</MiddleText>
-                    <Input></Input>
+                    <Input value={name}></Input>
                 </Column>
                 <Column style={{
                     marginRight: "30px"
@@ -56,6 +90,7 @@ const Presenter = ({ iconLoadingStart,
                         dateFormat="dd/MM/yyyy"
                         disabled={false}
                         locale="en"
+                        value={birth}
                     />
                 </Column>
                 <Column style={{
@@ -66,7 +101,7 @@ const Presenter = ({ iconLoadingStart,
                         bottom: "6px",
                         marginBottom: "10px"
                     }}>성별</MiddleText>
-                    <Radio.Group>
+                    <Radio.Group value={gender}>
                         <Radio value={'남자'}>남자</Radio>
                         <Radio value={'여자'}>여자</Radio>
                     </Radio.Group>
@@ -77,7 +112,7 @@ const Presenter = ({ iconLoadingStart,
                         bottom: "6px",
                         marginBottom: "10px"
                     }}>내외국인구분</MiddleText>
-                    <Radio.Group>
+                    <Radio.Group value={is_korean}>
                         <Radio value={'내국인'}>내국인</Radio>
                         <Radio value={'외국인'}>외국인</Radio>
                     </Radio.Group>
@@ -93,11 +128,25 @@ const Presenter = ({ iconLoadingStart,
                     }}>
                         <MiddleText>영문이름</MiddleText> <SeaBrookText>(선택입력)</SeaBrookText>
                     </Row>
-                    <Input />
+                    <Input value={ename} />
                 </Column>
             </Row>
             <Divider style={{
                 marginTop: "68px"
+            }} />
+            <Row style={{
+                marginBottom: 20
+            }}>
+                <MiddleText>거주지구분</MiddleText>
+            </Row>
+            <Row>
+                <Radio.Group value={is_stay_in_korea}>
+                    <Radio value={'국내'}>국내</Radio>
+                    <Radio value={'국외'}>국외</Radio>
+                </Radio.Group>
+            </Row>
+            <Divider style={{
+                marginTop: "50px"
             }} />
             <Row>
                 <Column style={{
@@ -106,7 +155,7 @@ const Presenter = ({ iconLoadingStart,
                     <MiddleText style={{
                         marginBottom: "16px"
                     }}>사용자 ID</MiddleText>
-                    <Input />
+                    <Input value={id} />
                 </Column>
                 <Button style={{
                     position: "relative",
@@ -119,13 +168,13 @@ const Presenter = ({ iconLoadingStart,
                     <MiddleText style={{
                         marginBottom: "16px"
                     }}>비밀번호</MiddleText>
-                    <Input.Password />
+                    <Input.Password value={pw} />
                 </Column>
                 <Column >
                     <MiddleText style={{
                         marginBottom: "16px"
                     }}>비밀번호 확인</MiddleText>
-                    <Input.Password />
+                    <Input.Password value={pw2} />
                 </Column>
             </Row>
             <Divider style={{
@@ -140,11 +189,13 @@ const Presenter = ({ iconLoadingStart,
                         <Input style={{
                             width: "185px",
                             marginRight: "20px"
-                        }} placeholder={'email id'} />
+                        }} placeholder={'email id'}
+                            value={email_id}
+                        />
                         <NormalText style={{
                             marginRight: "20px"
                         }}>@</NormalText>
-                        <Select value={'google.com'} style={{
+                        <Select value={email_domain} style={{
                             width: "300px"
                         }}>
                             <Option value="naver.com">naver.com</Option>
@@ -157,9 +208,9 @@ const Presenter = ({ iconLoadingStart,
                             marginRight: "20px",
 
                         }}>입력하신 이메일로 이메일을 수신하겠습니까? </SeaBrookText>
-                        <Radio.Group>
-                            <Radio value={'1'}>예</Radio>
-                            <Radio value={'2'}>아니오</Radio>
+                        <Radio.Group value={is_mailing}>
+                            <Radio value={true}>예</Radio>
+                            <Radio value={false}>아니오</Radio>
                         </Radio.Group>
                     </Row>
 
@@ -179,12 +230,12 @@ const Presenter = ({ iconLoadingStart,
                     <Row style={{
                         marginBottom: "10px"
                     }}>
-                        <Radio.Group>
+                        <Radio.Group value={has_organization}>
                             <Radio value={'기관'}>기관</Radio>
                             <Radio value={'개인'}>개인</Radio>
                         </Radio.Group>
                     </Row>
-                    <Input />
+                    <Input value={organization} />
                     <NormalText>개인 등록자는 일부 NTIS 서비스에 대하여 사용권한이 제한될 수 있습니다.</NormalText>
                 </Column>
             </Row>
@@ -208,80 +259,166 @@ const Presenter = ({ iconLoadingStart,
                 <MiddleText style={{
                     gridArea: 'b'
                 }}>주소</MiddleText>
-                <Button style={{
+                <Button
+                onClick={searchPostCodeButtonTapped}
+                style={{
                     gridArea: 'c',
                     marginBottom: '20px',
                     width: '114px'
                 }}>우편번호검색</Button>
-                <Input style={{
-                    gridArea: 'd',
-                    width: '130px'
-                }} />
-                <Input style={{
-                    gridArea: 'e'
-                }} />
-                <Input style={{
-                    gridArea: 'f'
-                }} />
+                <Input
+                    value={zipcode}
+                    style={{
+                        gridArea: 'd',
+                        width: '130px'
+                    }} />
+                <Input
+                    value={road_addr}
+                    style={{
+                        gridArea: 'e'
+                    }} />
+                <Input
+                    value={addr}
+                    style={{
+                        gridArea: 'f'
+                    }} />
             </div>
             <Divider style={{
                 marginTop: '50px'
             }} />
+
+            <Row style={{
+                marginBottom: 20
+            }}>
+                <SeaBrookText>연락할 수 있는 전화번호 2개중 하나는 (필수입력)으로 선택해야 합니다. </SeaBrookText>
+            </Row>
             <div style={{
                 display: 'grid',
                 gridTemplateAreas: `
-                'a a a a a a'
-                'b c d e f g'
-                'h h i i j j'
-            `
+                'a b c'
+                'd e f'
+                `,
+                gridTemplateColumns: '250px 250px 250px'
             }}>
-                <SeaBrookText style={{
-                    gridArea: 'a',
-                    marginBottom: '20px'
-                }}>연락할 수 있는 전화번호 2개중 하나는 (필수입력)으로 선택해야 합니다. </SeaBrookText>
-                <MiddleText style={{
-                    gridArea: 'b',
-                    marginBottom: '20px',
+                <div style={{
+                    gridArea: 'a'
+                }}>
+                    <Row style={{
+                        marginBottom: 20
+                    }}>
+                        <MiddleText>휴대전화 번호</MiddleText>
+                        <SeaBrookText>(필수입력 선택)</SeaBrookText>
+                    </Row>
+                </div>
+                <div style={{
+                    gridArea: 'b'
+                }}>
+                    <Row>
 
-                }}>휴대전화 번호</MiddleText><SeaBrookText style={{
-                    gridArea: 'c',
-                    marginTop: '4px',
-                    position: 'relative',
-                    right: '43px',
+                        <MiddleText>전화 번호</MiddleText>
+                        <SeaBrookText>(필수입력 선택)</SeaBrookText>
+                    </Row>
+                </div>
+                <div style={{
+                    gridArea: 'c'
+                }}>
+                    <Row >
 
-                }}>(필수입력 선택)</SeaBrookText>
-                <MiddleText style={{
+                        <MiddleText>팩스 번호</MiddleText>
+                        <SeaBrookText>(선택입력)</SeaBrookText>
+                    </Row>
+                </div>
+                <div style={{
                     gridArea: 'd'
-                }}>전화 번호</MiddleText><SeaBrookText style={{
-                    gridArea: 'e',
-                    marginTop: '4px',
-                    position: 'relative',
-                    right: '60px'
-                }}>(필수입력 선택)</SeaBrookText>
-                <MiddleText style={{
+                }}>
+                    <Row>
+
+                        <Input
+                            value={cp_no1}
+                            style={{
+                                width: 60,
+                                marginRight: 3,
+                                marginLeft: 3
+                            }} />
+                        -
+                        <Input
+                            value={cp_no2}
+                            style={{
+                                width: 60,
+                                marginRight: 3,
+                                marginLeft: 3
+                            }} />
+                        -
+                        <Input
+                            value={cp_no3}
+                            style={{
+                                width: 60,
+                                marginRight: 3,
+                                marginLeft: 3
+                            }} />
+                    </Row>
+                </div>
+                <div style={{
+                    gridArea: 'e'
+                }}>
+                    <Row>
+
+                        <Input
+                            value={tel_no1}
+                            style={{
+                                width: 60,
+                                marginRight: 3,
+                                marginLeft: 3
+                            }} />
+                        -
+                        <Input
+                            value={tel_no2}
+                            style={{
+                                width: 60,
+                                marginRight: 3,
+                                marginLeft: 3
+                            }} />
+                        -
+                        <Input
+                            value={tel_no3}
+                            style={{
+                                width: 60,
+                                marginRight: 3,
+                                marginLeft: 3
+                            }} />
+                    </Row>
+                </div>
+                <div style={{
                     gridArea: 'f'
-                }}>팩스</MiddleText><SeaBrookText style={{
-                    gridArea: 'g',
-                    marginTop: '4px',
-                    position: 'relative',
-                    right: '94px'
-                }}>(선택 입력)</SeaBrookText>
-                <Input style={{
-                    gridArea: 'h',
-                    width: '220px'
-                }} />
-                <Input style={{
-                    gridArea: 'i',
-                    width: '220px'
-                }} />
-                <Input style={{
-                    gridArea: 'j',
-                    width: '220px'
-                }} />
+                }}>
+                    <Row>
+                        <Input
+                            value={fax_no1}
+                            style={{
+                                width: 60,
+                                marginRight: 3,
+                                marginLeft: 3
+                            }} />
+                        -
+                        <Input
+                            value={fax_no2}
+                            style={{
+                                width: 60,
+                                marginRight: 3,
+                                marginLeft: 3
+                            }} />
+                        -
+                        <Input
+                            value={fax_no3}
+                            style={{
+                                width: 60,
+                                marginRight: 3,
+                                marginLeft: 3
+                            }} />
+                    </Row>
+                </div>
             </div>
-            <Divider style={{
-                marginTop: 50
-            }} />
+            <Divider />
             <div style={{
                 display: 'grid',
                 gridTemplateAreas: `
@@ -308,15 +445,15 @@ const Presenter = ({ iconLoadingStart,
                 <MiddleText style={{
                     gridArea: 'g'
                 }}>직위</MiddleText>
-                <Select style={{ width: 230, gridArea: 'i' }}>
+                <Select value={usertype} style={{ width: 230, gridArea: 'i' }}>
                     <Option value={'전체'}>전체</Option>
-                    <Option value={'연구자(대학,출연(연),연구소 등)'}>연구자(대학,출연(연),연구소 등)</Option>
-                    <Option value={'연구자(기업)'} >연구자(기업)</Option>
-                    <Option value={'과제관리기관'}>과제관리기관</Option>
-                    <Option value={'부처'}>부처</Option>
-                    <Option value={'일반이용자'}>일반이용자</Option>
+                    <Option value={1}>연구자(대학,출연(연),연구소 등)</Option>
+                    <Option value={7} >연구자(기업)</Option>
+                    <Option value={2}>과제관리기관</Option>
+                    <Option value={3}>부처</Option>
+                    <Option value={6}>일반이용자</Option>
                 </Select>
-                <Select style={{ width: 200, gridArea: 'j' }}>
+                <Select value={job} style={{ width: 200, gridArea: 'j' }}>
                     <Option value={'선택'}>선택</Option>
                     <Option value={'공무원'}>공무원</Option>
                     <Option value={'연구원'}>연구원</Option>
@@ -326,42 +463,58 @@ const Presenter = ({ iconLoadingStart,
                     <Option value={'제조업'}>제조업</Option>
                     <Option value={'IT관련종사자'}>IT관련종사자</Option>
                 </Select>
-                <Input style={{
-                    gridArea: 'k',
-                    width: 200
-                }} />
-                <Input style={{
-                    gridArea: 'l',
-                    width: 200
-                }} />
+                <Input
+                    value={dept}
+                    style={{
+                        gridArea: 'k',
+                        width: 200
+                    }} />
+                <Input
+                    value={position}
+                    style={{
+                        gridArea: 'l',
+                        width: 200
+                    }} />
             </div>
             <Divider style={{
                 marginTop: 50
             }} />
+
             <div style={{
                 display: 'grid',
                 gridTemplateAreas: `
-                'a b c d'
-                'e e f f'
-            `,
-                gridTemplateColumns: '150px 150px 150px 150px'
+                    'a b'
+                    'c d'
+                `,
+                gridTemplateColumns: '230px 230px'
             }}>
-                <MiddleText style={{
+                <div style={{
                     gridArea: 'a',
-                    marginBottom: '20px'
-                }}>담당업무</MiddleText>
-                <MiddleText style={{
+                    marginBottom: 20
+                }}>
+                    <MiddleText>담당업무</MiddleText>
+                </div>
+                <div style={{
+                    gridArea: 'b'
+                }}>
+                    <MiddleText>추천인ID</MiddleText>
+                </div>
+                <div style={{
                     gridArea: 'c'
-                }}>추천인ID</MiddleText>
-                <Input style={{
-                    gridArea: 'e',
-                    width: 200
-                }} />
-                <Input style={{
-                    gridArea: 'f',
-                    width: 200
-                }} />
+                }}>
+                    <Input value={instit_job} style={{
+                        width: 200
+                    }} />
+                </div>
+                <div style={{
+                    gridArea: 'd'
+                }}>
+                    <Input value={recommender} style={{
+                        width: 200
+                    }} />
+                </div>
             </div>
+
             <Row style={{
                 marginTop: 50,
                 justifyContent: 'center'

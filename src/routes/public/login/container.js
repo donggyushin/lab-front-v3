@@ -7,7 +7,8 @@ class Container extends React.Component {
     }
     render() {
         const { enterIconLoading } = this;
-        const { iconLoading } = this.state;
+        const { iconLoading
+        } = this.state;
         return <Presenter iconLoading={iconLoading} enterIconLoading={enterIconLoading} />
     }
 

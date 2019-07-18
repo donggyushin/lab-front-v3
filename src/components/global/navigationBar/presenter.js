@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Colors from '../../../constants/colors';
+import { MiddleText } from "../../../constants/styledComponents"
 
 const Container = styled.div`
 width: 100%;
@@ -24,13 +25,15 @@ const Text = styled.div`
 const Presenter = ({ isLoggedIn }) => <Container>
     <Row style={{
         width: "20%",
-        fontWeight: "900",
-        fontSize: "19px"
+
     }}>
         <a href="/" style={{
             color: Colors.fontColor
         }}>
-            R & D 정보 공유 시스템
+            <img style={{
+                width: 300,
+                marginTop: 19
+            }} src={require('../../../assets/kisti logo.png')} />
         </a>
 
     </Row>
