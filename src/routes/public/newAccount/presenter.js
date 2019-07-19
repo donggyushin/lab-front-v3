@@ -23,7 +23,7 @@ const Inner = styled.div`
 `;
 
 
-const Presenter = ({ iconLoadingStart,
+const Presenter = ({ 
     iconLoading,
     name,
     birth,
@@ -57,7 +57,14 @@ const Presenter = ({ iconLoadingStart,
     organization,
     recommender,
     instit_job,
-    searchPostCodeButtonTapped
+    searchPostCodeButtonTapped,
+    handleInput,
+    handleBirthday,
+    handleSelect,
+    handleUsertype,
+    handleJob,
+    doublecheckButtonTapped,
+    validationCheck
 }) => <Container>
 
         <Inner>
@@ -78,7 +85,7 @@ const Presenter = ({ iconLoadingStart,
                     <MiddleText style={{
                         marginBottom: "16px"
                     }}>이름</MiddleText>
-                    <Input value={name}></Input>
+                    <Input name={'name'} onChange={handleInput} value={name}></Input>
                 </Column>
                 <Column style={{
                     marginRight: "30px"
@@ -91,6 +98,8 @@ const Presenter = ({ iconLoadingStart,
                         disabled={false}
                         locale="en"
                         value={birth}
+                        name={'birth'}
+                        onChange={handleBirthday}
                     />
                 </Column>
                 <Column style={{
@@ -101,7 +110,7 @@ const Presenter = ({ iconLoadingStart,
                         bottom: "6px",
                         marginBottom: "10px"
                     }}>성별</MiddleText>
-                    <Radio.Group value={gender}>
+                    <Radio.Group name={'gender'} onChange={handleInput} value={gender}>
                         <Radio value={'남자'}>남자</Radio>
                         <Radio value={'여자'}>여자</Radio>
                     </Radio.Group>
@@ -112,7 +121,7 @@ const Presenter = ({ iconLoadingStart,
                         bottom: "6px",
                         marginBottom: "10px"
                     }}>내외국인구분</MiddleText>
-                    <Radio.Group value={is_korean}>
+                    <Radio.Group name={'is_korean'} onChange={handleInput} value={is_korean}>
                         <Radio value={'내국인'}>내국인</Radio>
                         <Radio value={'외국인'}>외국인</Radio>
                     </Radio.Group>
@@ -128,7 +137,7 @@ const Presenter = ({ iconLoadingStart,
                     }}>
                         <MiddleText>영문이름</MiddleText> <SeaBrookText>(선택입력)</SeaBrookText>
                     </Row>
-                    <Input value={ename} />
+                    <Input name={'ename'} onChange={handleInput} value={ename} />
                 </Column>
             </Row>
             <Divider style={{
@@ -140,7 +149,7 @@ const Presenter = ({ iconLoadingStart,
                 <MiddleText>거주지구분</MiddleText>
             </Row>
             <Row>
-                <Radio.Group value={is_stay_in_korea}>
+                <Radio.Group name={'is_stay_in_korea'} onChange={handleInput} value={is_stay_in_korea}>
                     <Radio value={'국내'}>국내</Radio>
                     <Radio value={'국외'}>국외</Radio>
                 </Radio.Group>
@@ -155,9 +164,11 @@ const Presenter = ({ iconLoadingStart,
                     <MiddleText style={{
                         marginBottom: "16px"
                     }}>사용자 ID</MiddleText>
-                    <Input value={id} />
+                    <Input name={'id'} onChange={handleInput} value={id} />
                 </Column>
-                <Button style={{
+                <Button
+                onClick={doublecheckButtonTapped}
+                style={{
                     position: "relative",
                     top: "24px",
                     marginRight: "30px"
@@ -168,13 +179,13 @@ const Presenter = ({ iconLoadingStart,
                     <MiddleText style={{
                         marginBottom: "16px"
                     }}>비밀번호</MiddleText>
-                    <Input.Password value={pw} />
+                    <Input.Password name={'pw'} onChange={handleInput} value={pw} />
                 </Column>
                 <Column >
                     <MiddleText style={{
                         marginBottom: "16px"
                     }}>비밀번호 확인</MiddleText>
-                    <Input.Password value={pw2} />
+                    <Input.Password name={'pw2'} onChange={handleInput} value={pw2} />
                 </Column>
             </Row>
             <Divider style={{
@@ -191,11 +202,13 @@ const Presenter = ({ iconLoadingStart,
                             marginRight: "20px"
                         }} placeholder={'email id'}
                             value={email_id}
+                            name={'email_id'}
+                            onChange={handleInput}
                         />
                         <NormalText style={{
                             marginRight: "20px"
                         }}>@</NormalText>
-                        <Select value={email_domain} style={{
+                        <Select onChange={handleSelect} value={email_domain} style={{
                             width: "300px"
                         }}>
                             <Option value="naver.com">naver.com</Option>
@@ -208,7 +221,7 @@ const Presenter = ({ iconLoadingStart,
                             marginRight: "20px",
 
                         }}>입력하신 이메일로 이메일을 수신하겠습니까? </SeaBrookText>
-                        <Radio.Group value={is_mailing}>
+                        <Radio.Group name={'is_mailing'} onChange={handleInput} value={is_mailing}>
                             <Radio value={true}>예</Radio>
                             <Radio value={false}>아니오</Radio>
                         </Radio.Group>
@@ -230,12 +243,13 @@ const Presenter = ({ iconLoadingStart,
                     <Row style={{
                         marginBottom: "10px"
                     }}>
-                        <Radio.Group value={has_organization}>
+                        <Radio.Group name={'has_organization'} onChange={handleInput} value={has_organization}>
                             <Radio value={'기관'}>기관</Radio>
                             <Radio value={'개인'}>개인</Radio>
                         </Radio.Group>
                     </Row>
-                    <Input value={organization} />
+                    {has_organization === "기관" && <Input name={'organization'} onChange={handleInput} value={organization} />}
+                    
                     <NormalText>개인 등록자는 일부 NTIS 서비스에 대하여 사용권한이 제한될 수 있습니다.</NormalText>
                 </Column>
             </Row>
@@ -260,12 +274,12 @@ const Presenter = ({ iconLoadingStart,
                     gridArea: 'b'
                 }}>주소</MiddleText>
                 <Button
-                onClick={searchPostCodeButtonTapped}
-                style={{
-                    gridArea: 'c',
-                    marginBottom: '20px',
-                    width: '114px'
-                }}>우편번호검색</Button>
+                    onClick={searchPostCodeButtonTapped}
+                    style={{
+                        gridArea: 'c',
+                        marginBottom: '20px',
+                        width: '114px'
+                    }}>우편번호검색</Button>
                 <Input
                     value={zipcode}
                     style={{
@@ -279,6 +293,8 @@ const Presenter = ({ iconLoadingStart,
                     }} />
                 <Input
                     value={addr}
+                    name={'addr'}
+                    onChange={handleInput}
                     style={{
                         gridArea: 'f'
                     }} />
@@ -335,6 +351,9 @@ const Presenter = ({ iconLoadingStart,
 
                         <Input
                             value={cp_no1}
+                            maxLength={3}
+                            name={'cp_no1'}
+                            onChange={handleInput}
                             style={{
                                 width: 60,
                                 marginRight: 3,
@@ -343,6 +362,9 @@ const Presenter = ({ iconLoadingStart,
                         -
                         <Input
                             value={cp_no2}
+                            maxLength={4}
+                            name={'cp_no2'}
+                            onChange={handleInput}
                             style={{
                                 width: 60,
                                 marginRight: 3,
@@ -351,6 +373,9 @@ const Presenter = ({ iconLoadingStart,
                         -
                         <Input
                             value={cp_no3}
+                            maxLength={4}
+                            name={'cp_no3'}
+                            onChange={handleInput}
                             style={{
                                 width: 60,
                                 marginRight: 3,
@@ -365,6 +390,9 @@ const Presenter = ({ iconLoadingStart,
 
                         <Input
                             value={tel_no1}
+                            maxLength={3}
+                            name={'tel_no1'}
+                            onChange={handleInput}
                             style={{
                                 width: 60,
                                 marginRight: 3,
@@ -373,6 +401,9 @@ const Presenter = ({ iconLoadingStart,
                         -
                         <Input
                             value={tel_no2}
+                            maxLength={4}
+                            name={'tel_no2'}
+                            onChange={handleInput}
                             style={{
                                 width: 60,
                                 marginRight: 3,
@@ -381,6 +412,9 @@ const Presenter = ({ iconLoadingStart,
                         -
                         <Input
                             value={tel_no3}
+                            name={'tel_no3'}
+                            onChange={handleInput}
+                            maxLength={4}
                             style={{
                                 width: 60,
                                 marginRight: 3,
@@ -394,6 +428,9 @@ const Presenter = ({ iconLoadingStart,
                     <Row>
                         <Input
                             value={fax_no1}
+                            maxLength={3}
+                            name={'fax_no1'}
+                            onChange={handleInput}
                             style={{
                                 width: 60,
                                 marginRight: 3,
@@ -402,6 +439,9 @@ const Presenter = ({ iconLoadingStart,
                         -
                         <Input
                             value={fax_no2}
+                            maxLength={4}
+                            name={'fax_no2'}
+                            onChange={handleInput}
                             style={{
                                 width: 60,
                                 marginRight: 3,
@@ -410,6 +450,9 @@ const Presenter = ({ iconLoadingStart,
                         -
                         <Input
                             value={fax_no3}
+                            maxLength={4}
+                            name={'fax_no3'}
+                            onChange={handleInput}
                             style={{
                                 width: 60,
                                 marginRight: 3,
@@ -445,7 +488,7 @@ const Presenter = ({ iconLoadingStart,
                 <MiddleText style={{
                     gridArea: 'g'
                 }}>직위</MiddleText>
-                <Select value={usertype} style={{ width: 230, gridArea: 'i' }}>
+                <Select value={usertype} onChange={handleUsertype} style={{ width: 230, gridArea: 'i' }}>
                     <Option value={'전체'}>전체</Option>
                     <Option value={1}>연구자(대학,출연(연),연구소 등)</Option>
                     <Option value={7} >연구자(기업)</Option>
@@ -453,7 +496,7 @@ const Presenter = ({ iconLoadingStart,
                     <Option value={3}>부처</Option>
                     <Option value={6}>일반이용자</Option>
                 </Select>
-                <Select value={job} style={{ width: 200, gridArea: 'j' }}>
+                <Select value={job} onChange={handleJob} style={{ width: 200, gridArea: 'j' }}>
                     <Option value={'선택'}>선택</Option>
                     <Option value={'공무원'}>공무원</Option>
                     <Option value={'연구원'}>연구원</Option>
@@ -465,12 +508,16 @@ const Presenter = ({ iconLoadingStart,
                 </Select>
                 <Input
                     value={dept}
+                    name={'dept'}
+                    onChange={handleInput}
                     style={{
                         gridArea: 'k',
                         width: 200
                     }} />
                 <Input
                     value={position}
+                    name={'position'}
+                    onChange={handleInput}
                     style={{
                         gridArea: 'l',
                         width: 200
@@ -502,14 +549,14 @@ const Presenter = ({ iconLoadingStart,
                 <div style={{
                     gridArea: 'c'
                 }}>
-                    <Input value={instit_job} style={{
+                    <Input name={'instit_job'} onChange={handleInput} value={instit_job} style={{
                         width: 200
                     }} />
                 </div>
                 <div style={{
                     gridArea: 'd'
                 }}>
-                    <Input value={recommender} style={{
+                    <Input name={'recommender'} onChange={handleInput} value={recommender} style={{
                         width: 200
                     }} />
                 </div>
@@ -519,7 +566,7 @@ const Presenter = ({ iconLoadingStart,
                 marginTop: 50,
                 justifyContent: 'center'
             }}>
-                <Button loading={iconLoading} onClick={iconLoadingStart}>회원가입</Button>
+                <Button loading={iconLoading} onClick={validationCheck}>회원가입</Button>
             </Row>
         </Inner>
     </Container>
