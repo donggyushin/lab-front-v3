@@ -3,35 +3,44 @@ import styled from "styled-components";
 import PrivateComponent from "./components/privateComponent";
 import PublicComponent from "./components/publicComponent";
 import NavigationBar from "./components/global/navigationBar";
+import Copyright from "./components/global/copyRight";
+import axios from "axios";
 
-const Container = styled.div``;
+const Container = styled.div`
+  position: relative;
+`;
 
 class AppContainer extends React.Component {
   state = {
-    isLoggedIn: false
+    isLoggedIn: false,
+    userLevel: ""
   };
 
   componentDidMount() {
-    const { checkLogin } = this;
+    const { checkLogin, getUserLevel } = this;
 
     checkLogin();
+    getUserLevel();
   }
 
   render() {
-    const { isLoggedIn } = this.state;
+    const { isLoggedIn, userLevel } = this.state;
     const { logout } = this;
     return (
       <Container>
         <div
           style={{
-            position: "absolute",
-            top: 0,
             width: "100%"
           }}
         >
-          <NavigationBar logout={logout} isLoggedIn={isLoggedIn} />
+          <NavigationBar
+            userLevel={userLevel}
+            logout={logout}
+            isLoggedIn={isLoggedIn}
+          />
         </div>
         {isLoggedIn ? <PrivateComponent /> : <PublicComponent />}
+        <Copyright />
       </Container>
     );
   }
@@ -56,6 +65,23 @@ class AppContainer extends React.Component {
     });
     window.location.href = "/";
     return;
+  };
+
+  getUserLevel = () => {
+    axios
+      .get("/api/user/level", {
+        headers: {
+          token: localStorage.getItem("token")
+        }
+      })
+      .then(res => res.data)
+      .then(data => {
+        if (data.ok) {
+          this.setState({
+            userLevel: data.userLevel
+          });
+        }
+      });
   };
 }
 

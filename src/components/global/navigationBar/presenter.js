@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import Colors from "../../../constants/colors";
-import { MiddleText } from "../../../constants/styledComponents";
-
+import { MiddleText, NormalText } from "../../../constants/styledComponents";
+import { Link } from "react-router-dom";
+import { white } from "ansi-colors";
+import styles from "./styles.module.css";
 const Container = styled.div`
   width: 100%;
   height: 67px;
@@ -22,7 +24,7 @@ const Text = styled.div`
   color: ${Colors.fontColor};
 `;
 
-const Presenter = ({ isLoggedIn, logout }) => (
+const Presenter = ({ isLoggedIn, logout, userLevel }) => (
   <Container>
     <Row
       style={{
@@ -46,9 +48,85 @@ const Presenter = ({ isLoggedIn, logout }) => (
     </Row>
     <Row
       style={{
-        width: "60%"
+        width: "60%",
+        alignItems: "flex-start",
+        justifyContent: "center",
+        position: "relative",
+        top: "13px",
+        height: "21px"
       }}
-    />
+    >
+      {userLevel == "normal" && (
+        <>
+          <a href="/v1/search-num">
+            <NormalText>과학기술인등록번호 조회</NormalText>
+          </a>
+          <a href="/v1/add-researcher">
+            <NormalText
+              style={{
+                marginRight: 15,
+                marginLeft: 15
+              }}
+            >
+              연구자 정보 등록
+            </NormalText>
+          </a>
+          <a href="/v1/edit-researcher">
+            <NormalText>연구자 정보 수정</NormalText>
+          </a>
+        </>
+      )}
+      {userLevel == "agencyAdmin" && (
+        <>
+          <a href="/v1/search-num">
+            <NormalText>과학기술인등록번호 조회</NormalText>
+          </a>
+
+          <div
+            className={styles.container}
+            style={{
+              zIndex: 3
+            }}
+          >
+            <a href="/v1/search-researcher">
+              <NormalText
+                className={styles.text}
+                style={{
+                  marginRight: 15,
+                  marginLeft: 15
+                }}
+              >
+                연구자 정보 조회
+              </NormalText>
+            </a>
+            <div className={styles.menu}>
+              <NormalText className={styles.item}>기본정보</NormalText>
+              <NormalText className={styles.item}>학력사항</NormalText>
+              <NormalText className={styles.item}>경력사항</NormalText>
+              <NormalText className={styles.item}>논문실적</NormalText>
+              <NormalText className={styles.item}>지적 재산권 실적</NormalText>
+            </div>
+          </div>
+        </>
+      )}
+      {userLevel == "intergrated" && (
+        <>
+          <a href="/v1/add-manager">
+            <NormalText>기관관리자 추가</NormalText>
+          </a>
+          <a href="/v1/remove-manager">
+            <NormalText
+              style={{
+                marginRight: 15,
+                marginLeft: 15
+              }}
+            >
+              기관관리자 삭제
+            </NormalText>
+          </a>
+        </>
+      )}
+    </Row>
     <Row
       style={{
         width: "20%"
