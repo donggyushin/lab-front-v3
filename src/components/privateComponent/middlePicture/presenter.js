@@ -30,7 +30,7 @@ const Presenter = ({ fn }) => (
       {fn === "edit-researcher" && "연구자 정보 수정"}
       {fn === "search-researcher" && "연구자 정보 조회"}
       {fn === "add-manager" && "기관관리자 추가"}
-      {fn === "remove-manager" && "기관관리자 제거"}
+      {fn === "remove-manager" && "기관관리자 삭제"}
     </MiddleWhiteText>
   </Container>
 );

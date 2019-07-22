@@ -45,3 +45,9 @@ export const BiggerThanNormal = styled.div`
   font-size: 18px;
   color: ${Colors.midnightBlue};
 `;
+
+export const BiggerThanNormal150 = styled.div`
+  font-size: 18px;
+  color: ${Colors.midnightBlue};
+  width: 150px;
+`;
