@@ -9,6 +9,7 @@ class Container extends React.Component {
   };
 
   componentDidMount() {
+    k;
     const { requestAllNormalUsers, requestAllAgencyManagers } = this;
     const { fn } = this.props;
     if (fn === "add-manager") {
