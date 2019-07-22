@@ -100,11 +100,23 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
               </NormalText>
             </a>
             <div className={styles.menu}>
-              <NormalText className={styles.item}>기본정보</NormalText>
-              <NormalText className={styles.item}>학력사항</NormalText>
-              <NormalText className={styles.item}>경력사항</NormalText>
-              <NormalText className={styles.item}>논문실적</NormalText>
-              <NormalText className={styles.item}>지적 재산권 실적</NormalText>
+              <a href={"/v1/search-researcher?k=basic"}>
+                <NormalText className={styles.item}>기본정보</NormalText>
+              </a>
+              <a href="/v1/search-researcher?k=degree">
+                <NormalText className={styles.item}>학력사항</NormalText>
+              </a>
+              <a href="/v1/search-researcher?k=career">
+                <NormalText className={styles.item}>경력사항</NormalText>
+              </a>
+              <a href="/v1/search-researcher?k=paper">
+                <NormalText className={styles.item}>논문실적</NormalText>
+              </a>
+              <a href="/v1/search-researcher?k=property">
+                <NormalText className={styles.item}>
+                  지적 재산권 실적
+                </NormalText>
+              </a>
             </div>
           </div>
         </>

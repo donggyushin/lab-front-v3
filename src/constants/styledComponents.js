@@ -40,3 +40,8 @@ export const SeaBrookText = styled.div`
 export const WhiteText = styled.div`
   color: white;
 `;
+
+export const BiggerThanNormal = styled.div`
+  font-size: 18px;
+  color: ${Colors.midnightBlue};
+`;
