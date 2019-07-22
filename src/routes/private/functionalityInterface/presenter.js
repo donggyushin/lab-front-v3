@@ -11,7 +11,7 @@ const Presenter = ({ fn, k }) => {
     <Container>
       <MiddlePicture fn={fn} />
       {fn === "search-num" && <SearchNumber />}
-      <InfoInquiry k={k} />
+      {k !== null && <InfoInquiry k={k} />}
     </Container>
   );
 };

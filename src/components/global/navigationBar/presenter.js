@@ -88,7 +88,7 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
               zIndex: 3
             }}
           >
-            <a href="/v1/search-researcher">
+            <a href="/v1/search-researcher?k=basic">
               <NormalText
                 className={styles.text}
                 style={{
