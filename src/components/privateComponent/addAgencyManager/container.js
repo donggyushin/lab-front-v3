@@ -2,6 +2,12 @@ import React from "react";
 import Presenter from "./presenter";
 import axios from "axios";
 
+const axiosConfig = {
+  headers: {
+    token: localStorage.getItem("token")
+  }
+};
+
 class Container extends React.Component {
   state = {
     loading: true,
@@ -9,7 +15,6 @@ class Container extends React.Component {
   };
 
   componentDidMount() {
-    k;
     const { requestAllNormalUsers, requestAllAgencyManagers } = this;
     const { fn } = this.props;
     if (fn === "add-manager") {
@@ -22,8 +27,82 @@ class Container extends React.Component {
   render() {
     const { loading, users } = this.state;
     const { fn } = this.props;
-    return <Presenter loading={loading} fn={fn} users={users} />;
+    const { addManagerButtonTapped, removeManagerButtonTapped } = this;
+    return (
+      <Presenter
+        loading={loading}
+        addManagerButtonTapped={addManagerButtonTapped}
+        removeManagerButtonTapped={removeManagerButtonTapped}
+        fn={fn}
+        users={users}
+      />
+    );
   }
+
+  removeManagerButtonTapped = id => {
+    const { users } = this.state;
+    const updatedUsers = users.filter(user => {
+      return user.id !== id;
+    });
+    this.setState({
+      users: updatedUsers
+    });
+
+    const postData = {
+      id
+    };
+
+    axios
+      .post("/api/user/remove-manager", postData, axiosConfig)
+      .then(res => res.data)
+      .then(data => {
+        if (data.ok === false) {
+          alert(data.error);
+          this.setState({
+            users
+          });
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        this.setState({
+          users
+        });
+      });
+  };
+
+  addManagerButtonTapped = userId => {
+    const { users } = this.state;
+    const updatedUsers = users.filter(user => {
+      return user.id !== userId;
+    });
+    this.setState({
+      users: updatedUsers
+    });
+    const postData = {
+      id: userId
+    };
+
+    axios
+      .post("/api/user/add-manager", postData, axiosConfig)
+      .then(res => res.data)
+      .then(data => {
+        if (data.ok === false) {
+          alert(data.error);
+          this.setState({
+            users
+          });
+          return;
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        this.setState({
+          users
+        });
+        return;
+      });
+  };
 
   requestAllAgencyManagers = () => {
     axios
@@ -60,7 +139,6 @@ class Container extends React.Component {
       })
       .then(res => res.data)
       .then(data => {
-        console.log(data);
         if (!data.ok) {
           alert(data.error);
           this.setState({

@@ -40,7 +40,7 @@ const Card = styled.div`
   padding-bottom: 50px;
 `;
 
-const Presenter = ({ k }) => (
+const Presenter = ({ k, fn }) => (
   <Container>
     <>
       <TitleContainer>
@@ -70,7 +70,7 @@ const Presenter = ({ k }) => (
             marginLeft: 80
           }}
         >
-          <SideNav k={k} />
+          <SideNav fn={fn} k={k} />
         </div>
 
         <Card>

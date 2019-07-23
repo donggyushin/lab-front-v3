@@ -3,9 +3,8 @@ import Presenter from "./presenter";
 
 class Container extends React.Component {
   render() {
-    const { k } = this.props;
-    console.log("k:", k);
-    return <Presenter k={k} />;
+    const { k, fn } = this.props;
+    return <Presenter fn={fn} k={k} />;
   }
 }
 

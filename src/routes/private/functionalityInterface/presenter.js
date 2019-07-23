@@ -12,7 +12,7 @@ const Presenter = ({ fn, k }) => {
     <Container>
       <MiddlePicture fn={fn} />
       {fn === "search-num" && <SearchNumber />}
-      {fn === "search-researcher" && <InfoInquiry k={k} />}
+      {fn === "search-researcher" && <InfoInquiry fn={fn} k={k} />}
       {fn === "add-manager" && <AgencyManager fn={fn} />}
       {fn === "remove-manager" && <AgencyManager fn={fn} />}
     </Container>

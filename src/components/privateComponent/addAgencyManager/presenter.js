@@ -7,6 +7,7 @@ import {
   Row
 } from "../../../constants/styledComponents";
 import { Divider, Button } from "antd";
+import SideNav from "../sideNav";
 
 const Container = styled.div`
   display: flex;
@@ -33,7 +34,13 @@ const Title = styled.div`
   justify-content: center;
 `;
 
-const Presenter = ({ loading, users, fn }) => (
+const Presenter = ({
+  loading,
+  users,
+  fn,
+  addManagerButtonTapped,
+  removeManagerButtonTapped
+}) => (
   <Container>
     <Title>
       <MiddleWhiteText
@@ -45,37 +52,55 @@ const Presenter = ({ loading, users, fn }) => (
         {fn === "remove-manager" && "기관 관리자 삭제"}
       </MiddleWhiteText>
     </Title>
-    <Card>
-      <Row>
-        <BiggerThanNormal150>아이디</BiggerThanNormal150>
-        <BiggerThanNormal150>이름</BiggerThanNormal150>
-        <BiggerThanNormal150>이름(영문)</BiggerThanNormal150>
-        <BiggerThanNormal150>유저 등급</BiggerThanNormal150>
-      </Row>
-      <Divider />
-      {loading === true && "loading..."}
-      {loading === false && (
-        <>
-          {users.map(user => {
-            return (
-              <Row
-                style={{
-                  marginBottom: 20
-                }}
-                key={user.id}
-              >
-                <BiggerThanNormal150>{user.id}</BiggerThanNormal150>
-                <BiggerThanNormal150>{user.name}</BiggerThanNormal150>
-                <BiggerThanNormal150>{user.ename}</BiggerThanNormal150>
-                <BiggerThanNormal150>{user.user_level}</BiggerThanNormal150>
-                {fn === "add-manager" && <Button>기관 관리자 추가</Button>}
-                {fn === "remove-manager" && <Button>기관 관리자 삭제</Button>}
-              </Row>
-            );
-          })}
-        </>
-      )}
-    </Card>
+    <Row>
+      <div
+        style={{
+          position: "relative",
+          right: 160
+        }}
+      >
+        <SideNav fn={fn} />
+      </div>
+      <Card>
+        <Row>
+          <BiggerThanNormal150>아이디</BiggerThanNormal150>
+          <BiggerThanNormal150>이름</BiggerThanNormal150>
+          <BiggerThanNormal150>이름(영문)</BiggerThanNormal150>
+          <BiggerThanNormal150>유저 등급</BiggerThanNormal150>
+        </Row>
+        <Divider />
+        {loading === true && "loading..."}
+        {loading === false && (
+          <>
+            {users.map(user => {
+              return (
+                <Row
+                  style={{
+                    marginBottom: 20
+                  }}
+                  key={user.id}
+                >
+                  <BiggerThanNormal150>{user.id}</BiggerThanNormal150>
+                  <BiggerThanNormal150>{user.name}</BiggerThanNormal150>
+                  <BiggerThanNormal150>{user.ename}</BiggerThanNormal150>
+                  <BiggerThanNormal150>{user.user_level}</BiggerThanNormal150>
+                  {fn === "add-manager" && (
+                    <Button onClick={() => addManagerButtonTapped(user.id)}>
+                      기관 관리자 추가
+                    </Button>
+                  )}
+                  {fn === "remove-manager" && (
+                    <Button onClick={() => removeManagerButtonTapped(user.id)}>
+                      기관 관리자 삭제
+                    </Button>
+                  )}
+                </Row>
+              );
+            })}
+          </>
+        )}
+      </Card>
+    </Row>
   </Container>
 );
 

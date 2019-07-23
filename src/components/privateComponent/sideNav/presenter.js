@@ -26,43 +26,68 @@ const SelectedButton = styled.div`
   color: ${Colors.lightBlue};
 `;
 
-const Presenter = ({ k }) => (
+const Presenter = ({ k, fn }) => (
   <Container>
-    <a href="/v1/search-researcher?k=basic">
-      {k === null || k === "basic" ? (
-        <SelectedButton>기본 정보</SelectedButton>
-      ) : (
-        <Button>기본 정보</Button>
-      )}
-    </a>
-    <a href="/v1/search-researcher?k=degree">
-      {k === "degree" ? (
-        <SelectedButton>학력 사항</SelectedButton>
-      ) : (
-        <Button>학력 사항</Button>
-      )}
-    </a>
-    <a href="/v1/search-researcher?k=career">
-      {k === "career" ? (
-        <SelectedButton>경력 사항</SelectedButton>
-      ) : (
-        <Button>경력 사항</Button>
-      )}
-    </a>
-    <a href="/v1/search-researcher?k=paper">
-      {k === "paper" ? (
-        <SelectedButton>논문 실적</SelectedButton>
-      ) : (
-        <Button>논문 실적</Button>
-      )}
-    </a>
-    <a href="/v1/search-researcher?k=property">
-      {k === "property" ? (
-        <SelectedButton>지적 재산권 실적</SelectedButton>
-      ) : (
-        <Button>지적 재산권 실적</Button>
-      )}
-    </a>
+    {fn === "search-researcher" && (
+      <>
+        <a href="/v1/search-researcher?k=basic">
+          {k === null || k === "basic" ? (
+            <SelectedButton>기본 정보</SelectedButton>
+          ) : (
+            <Button>기본 정보</Button>
+          )}
+        </a>
+
+        <a href="/v1/search-researcher?k=degree">
+          {k === "degree" ? (
+            <SelectedButton>학력 사항</SelectedButton>
+          ) : (
+            <Button>학력 사항</Button>
+          )}
+        </a>
+        <a href="/v1/search-researcher?k=career">
+          {k === "career" ? (
+            <SelectedButton>경력 사항</SelectedButton>
+          ) : (
+            <Button>경력 사항</Button>
+          )}
+        </a>
+        <a href="/v1/search-researcher?k=paper">
+          {k === "paper" ? (
+            <SelectedButton>논문 실적</SelectedButton>
+          ) : (
+            <Button>논문 실적</Button>
+          )}
+        </a>
+        <a href="/v1/search-researcher?k=property">
+          {k === "property" ? (
+            <SelectedButton>지적 재산권 실적</SelectedButton>
+          ) : (
+            <Button>지적 재산권 실적</Button>
+          )}
+        </a>
+      </>
+    )}
+
+    {(fn === "add-manager" || fn === "remove-manager") && (
+      <>
+        <a href="/v1/add-manager">
+          {fn === "add-manager" ? (
+            <SelectedButton>기관관리자 추가</SelectedButton>
+          ) : (
+            <Button>기관관리자 추가</Button>
+          )}
+        </a>
+
+        <a href="/v1/remove-manager">
+          {fn === "remove-manager" ? (
+            <SelectedButton>기관관리자 제거</SelectedButton>
+          ) : (
+            <Button>기관관리자 제거</Button>
+          )}
+        </a>
+      </>
+    )}
   </Container>
 );
 
