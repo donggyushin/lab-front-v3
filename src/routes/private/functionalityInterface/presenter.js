@@ -7,11 +7,11 @@ import AgencyManager from "../../../components/privateComponent/addAgencyManager
 
 const Container = styled.div``;
 
-const Presenter = ({ fn, k }) => {
+const Presenter = ({ fn, k, userLevel }) => {
   return (
     <Container>
       <MiddlePicture fn={fn} />
-      {fn === "search-num" && <SearchNumber />}
+      {fn === "search-num" && <SearchNumber userLevel={userLevel} fn={fn} />}
       {fn === "search-researcher" && <InfoInquiry fn={fn} k={k} />}
       {fn === "add-manager" && <AgencyManager fn={fn} />}
       {fn === "remove-manager" && <AgencyManager fn={fn} />}

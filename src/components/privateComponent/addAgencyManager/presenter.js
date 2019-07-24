@@ -42,7 +42,11 @@ const Presenter = ({
   removeManagerButtonTapped
 }) => (
   <Container>
-    <Title>
+    <Title
+      style={{
+        marginBottom: 100
+      }}
+    >
       <MiddleWhiteText
         style={{
           width: 800

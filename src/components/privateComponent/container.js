@@ -28,6 +28,8 @@ class Container extends React.Component {
       .then(data => {
         if (!data.ok) {
           alert(data.error);
+          localStorage.removeItem("token");
+          window.location.href = "/";
         } else {
           this.setState({
             userLevel: data.userLevel,

@@ -59,7 +59,8 @@ const Presenter = ({ iconLoading, tryLogin, id, pw, handleInput }) => (
         name={"pw"}
         onChange={handleInput}
         style={{
-          marginBottom: "20px"
+          marginBottom: "20px",
+          fontSize: 17
         }}
         placeholder={"비밀번호를 입력해주세요. "}
       />

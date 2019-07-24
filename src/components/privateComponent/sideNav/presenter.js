@@ -26,8 +26,49 @@ const SelectedButton = styled.div`
   color: ${Colors.lightBlue};
 `;
 
-const Presenter = ({ k, fn }) => (
+const Presenter = ({ k, fn, userLevel }) => (
   <Container>
+    {fn === "search-num" && userLevel === "agencyAdmin" && (
+      <>
+        <a href="/v1/search-num">
+          {fn === "search-num" ? (
+            <SelectedButton>과학기술인등록번호 조회</SelectedButton>
+          ) : (
+            <Button>과학기술인등록번호 조회</Button>
+          )}
+        </a>
+        <a href="/v1/search-researcher?k=basic">
+          <Button>연구자 정보 조회</Button>
+        </a>
+      </>
+    )}
+    {((fn === "search-num" && userLevel === "normal") ||
+      fn === "add-researcher" ||
+      fn === "edit-researcher") && (
+      <>
+        <a href="/v1/search-num">
+          {fn === "search-num" ? (
+            <SelectedButton>과학기술인등록번호 조회</SelectedButton>
+          ) : (
+            <Button>과학기술인등록번호 조회</Button>
+          )}
+        </a>
+        <a href="/v1/add-researcher">
+          {fn === "add-researcher" ? (
+            <SelectedButton>연구자 정보 등록</SelectedButton>
+          ) : (
+            <Button>연구자 정보 등록</Button>
+          )}
+        </a>
+        <a href="/v1/edit-researcher">
+          {fn === "edit-researcher" ? (
+            <SelectedButton>연구자 정보 수정</SelectedButton>
+          ) : (
+            <Button>연구자 정보 수정</Button>
+          )}
+        </a>
+      </>
+    )}
     {fn === "search-researcher" && (
       <>
         <a href="/v1/search-researcher?k=basic">

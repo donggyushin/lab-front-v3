@@ -36,8 +36,8 @@ const Card = styled.div`
   width: 600px;
   display: flex;
   flex-direction: column;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 150px;
+  padding-bottom: 150px;
 `;
 
 const Presenter = ({ k, fn }) => (
@@ -61,13 +61,14 @@ const Presenter = ({ k, fn }) => (
       </TitleContainer>
       <Row
         style={{
-          width: "100%"
+          width: "100%",
+          justifyContent: "center"
         }}
       >
         <div
           style={{
-            marginRight: 150,
-            marginLeft: 80
+            position: "relative",
+            right: 190
           }}
         >
           <SideNav fn={fn} k={k} />
