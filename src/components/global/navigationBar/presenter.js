@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import Colors from "../../../constants/colors";
-import { MiddleText, NormalText } from "../../../constants/styledComponents";
-import { Link } from "react-router-dom";
-import { white } from "ansi-colors";
+import {
+  NormalText,
+  BiggerThanNormal
+} from "../../../constants/styledComponents";
 import styles from "./styles.module.css";
 const Container = styled.div`
   width: 100%;
@@ -59,27 +60,27 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
       {userLevel == "normal" && (
         <>
           <a href="/v1/search-num">
-            <NormalText>과학기술인등록번호 조회</NormalText>
+            <BiggerThanNormal>과학기술인등록번호 조회</BiggerThanNormal>
           </a>
           <a href="/v1/add-researcher">
-            <NormalText
+            <BiggerThanNormal
               style={{
                 marginRight: 15,
                 marginLeft: 15
               }}
             >
               연구자 정보 등록
-            </NormalText>
+            </BiggerThanNormal>
           </a>
           <a href="/v1/edit-researcher">
-            <NormalText>연구자 정보 수정</NormalText>
+            <BiggerThanNormal>연구자 정보 수정</BiggerThanNormal>
           </a>
         </>
       )}
       {userLevel == "agencyAdmin" && (
         <>
           <a href="/v1/search-num">
-            <NormalText>과학기술인등록번호 조회</NormalText>
+            <BiggerThanNormal>과학기술인등록번호 조회</BiggerThanNormal>
           </a>
 
           <div
@@ -89,7 +90,7 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
             }}
           >
             <a href="/v1/search-researcher?k=basic">
-              <NormalText
+              <BiggerThanNormal
                 className={styles.text}
                 style={{
                   marginRight: 15,
@@ -97,25 +98,33 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
                 }}
               >
                 연구자 정보 조회
-              </NormalText>
+              </BiggerThanNormal>
             </a>
             <div className={styles.menu}>
               <a href={"/v1/search-researcher?k=basic"}>
-                <NormalText className={styles.item}>기본정보</NormalText>
+                <BiggerThanNormal className={styles.item}>
+                  기본정보
+                </BiggerThanNormal>
               </a>
               <a href="/v1/search-researcher?k=degree">
-                <NormalText className={styles.item}>학력사항</NormalText>
+                <BiggerThanNormal className={styles.item}>
+                  학력사항
+                </BiggerThanNormal>
               </a>
               <a href="/v1/search-researcher?k=career">
-                <NormalText className={styles.item}>경력사항</NormalText>
+                <BiggerThanNormal className={styles.item}>
+                  경력사항
+                </BiggerThanNormal>
               </a>
               <a href="/v1/search-researcher?k=paper">
-                <NormalText className={styles.item}>논문실적</NormalText>
+                <BiggerThanNormal className={styles.item}>
+                  논문실적
+                </BiggerThanNormal>
               </a>
               <a href="/v1/search-researcher?k=property">
-                <NormalText className={styles.item}>
+                <BiggerThanNormal className={styles.item}>
                   지적 재산권 실적
-                </NormalText>
+                </BiggerThanNormal>
               </a>
             </div>
           </div>
@@ -124,24 +133,26 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
       {userLevel == "intergrated" && (
         <>
           <a href="/v1/add-manager">
-            <NormalText>기관관리자 추가</NormalText>
+            <BiggerThanNormal>기관관리자 추가</BiggerThanNormal>
           </a>
           <a href="/v1/remove-manager">
-            <NormalText
+            <BiggerThanNormal
               style={{
                 marginRight: 15,
                 marginLeft: 15
               }}
             >
               기관관리자 삭제
-            </NormalText>
+            </BiggerThanNormal>
           </a>
         </>
       )}
     </Row>
     <Row
       style={{
-        width: "20%"
+        width: "20%",
+        position: "relative",
+        top: 10
       }}
     >
       {!isLoggedIn && (

@@ -16,6 +16,7 @@ export const NormalText = styled.div`
 
 export const MiddleText = styled.div`
   font-size: 22px;
+  color: ${Colors.midnightBlue};
 `;
 
 export const MiddleWhiteText = styled.div`
