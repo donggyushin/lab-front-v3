@@ -13,8 +13,9 @@ const Presenter = ({ fn, k, userLevel }) => {
       <MiddlePicture fn={fn} />
       {fn === "search-num" && <SearchNumber userLevel={userLevel} fn={fn} />}
       {fn === "search-researcher" && <InfoInquiry fn={fn} k={k} />}
-      {fn === "add-manager" && <AgencyManager fn={fn} />}
-      {fn === "remove-manager" && <AgencyManager fn={fn} />}
+      {(fn === "add-manager" || fn === "remove-manager") && (
+        <AgencyManager fn={fn} />
+      )}
     </Container>
   );
 };

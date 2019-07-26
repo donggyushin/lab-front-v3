@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Colors from "../../../constants/colors";
 import {
-  NormalText,
+  NavigationText,
   BiggerThanNormal
 } from "../../../constants/styledComponents";
 import styles from "./styles.module.css";
@@ -60,27 +60,38 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
       {userLevel == "normal" && (
         <>
           <a href="/v1/search-num">
-            <BiggerThanNormal>과학기술인등록번호 조회</BiggerThanNormal>
+            <NavigationText>과학기술인등록번호 조회</NavigationText>
           </a>
           <a href="/v1/add-researcher">
-            <BiggerThanNormal
+            <NavigationText
               style={{
                 marginRight: 15,
                 marginLeft: 15
               }}
             >
               연구자 정보 등록
-            </BiggerThanNormal>
+            </NavigationText>
           </a>
           <a href="/v1/edit-researcher">
-            <BiggerThanNormal>연구자 정보 수정</BiggerThanNormal>
+            <NavigationText
+              style={{
+                marginRight: 15,
+                marginLeft: 15
+              }}
+            >
+              {" "}
+              연구자 정보 수정
+            </NavigationText>
+          </a>
+          <a href="/v1/search">
+            <NavigationText>검색</NavigationText>
           </a>
         </>
       )}
       {userLevel == "agencyAdmin" && (
         <>
           <a href="/v1/search-num">
-            <BiggerThanNormal>과학기술인등록번호 조회</BiggerThanNormal>
+            <NavigationText>과학기술인등록번호 조회</NavigationText>
           </a>
 
           <div
@@ -90,7 +101,7 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
             }}
           >
             <a href="/v1/search-researcher?k=basic">
-              <BiggerThanNormal
+              <NavigationText
                 className={styles.text}
                 style={{
                   marginRight: 15,
@@ -98,33 +109,33 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
                 }}
               >
                 연구자 정보 조회
-              </BiggerThanNormal>
+              </NavigationText>
             </a>
             <div className={styles.menu}>
               <a href={"/v1/search-researcher?k=basic"}>
-                <BiggerThanNormal className={styles.item}>
+                <NavigationText className={styles.item}>
                   기본정보
-                </BiggerThanNormal>
+                </NavigationText>
               </a>
               <a href="/v1/search-researcher?k=degree">
-                <BiggerThanNormal className={styles.item}>
+                <NavigationText className={styles.item}>
                   학력사항
-                </BiggerThanNormal>
+                </NavigationText>
               </a>
               <a href="/v1/search-researcher?k=career">
-                <BiggerThanNormal className={styles.item}>
+                <NavigationText className={styles.item}>
                   경력사항
-                </BiggerThanNormal>
+                </NavigationText>
               </a>
               <a href="/v1/search-researcher?k=paper">
-                <BiggerThanNormal className={styles.item}>
+                <NavigationText className={styles.item}>
                   논문실적
-                </BiggerThanNormal>
+                </NavigationText>
               </a>
               <a href="/v1/search-researcher?k=property">
-                <BiggerThanNormal className={styles.item}>
+                <NavigationText className={styles.item}>
                   지적 재산권 실적
-                </BiggerThanNormal>
+                </NavigationText>
               </a>
             </div>
           </div>
@@ -133,17 +144,17 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
       {userLevel == "intergrated" && (
         <>
           <a href="/v1/add-manager">
-            <BiggerThanNormal>기관관리자 추가</BiggerThanNormal>
+            <NavigationText>기관관리자 추가</NavigationText>
           </a>
           <a href="/v1/remove-manager">
-            <BiggerThanNormal
+            <NavigationText
               style={{
                 marginRight: 15,
                 marginLeft: 15
               }}
             >
               기관관리자 삭제
-            </BiggerThanNormal>
+            </NavigationText>
           </a>
         </>
       )}

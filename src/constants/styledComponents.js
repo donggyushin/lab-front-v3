@@ -47,6 +47,14 @@ export const BiggerThanNormal = styled.div`
   color: ${Colors.midnightBlue};
 `;
 
+export const NavigationText = styled.div`
+  font-size: 18px;
+  color: ${Colors.midnightBlue};
+  &:hover {
+    color: ${Colors.lightBlue};
+  }
+`;
+
 export const BiggerThanNormal150 = styled.div`
   font-size: 18px;
   color: ${Colors.midnightBlue};
