@@ -4,6 +4,7 @@ import MiddlePicture from "../../../components/privateComponent/middlePicture";
 import SearchNumber from "../../../components/privateComponent/number";
 import InfoInquiry from "../../../components/privateComponent/infoInquiry";
 import AgencyManager from "../../../components/privateComponent/addAgencyManager";
+import ResearchInfo from "../../../components/privateComponent/researcherInfo";
 
 const Container = styled.div``;
 
@@ -16,6 +17,7 @@ const Presenter = ({ fn, k, userLevel }) => {
       {(fn === "add-manager" || fn === "remove-manager") && (
         <AgencyManager fn={fn} />
       )}
+      {fn === "search" && <ResearchInfo />}
     </Container>
   );
 };

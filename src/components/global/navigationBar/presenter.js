@@ -84,7 +84,7 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
             </NavigationText>
           </a>
           <a href="/v1/search">
-            <NavigationText>검색</NavigationText>
+            <NavigationText>조회</NavigationText>
           </a>
         </>
       )}

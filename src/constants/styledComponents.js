@@ -60,3 +60,15 @@ export const BiggerThanNormal150 = styled.div`
   color: ${Colors.midnightBlue};
   width: 150px;
 `;
+
+export const BiggerThanNormalWithBackground = styled.div`
+  font-size: 18px;
+  color: ${Colors.midnightBlue};
+  background-color: ${Colors.citiLights};
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 600;
+  width: 150px;
+`;
