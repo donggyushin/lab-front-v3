@@ -65,14 +65,14 @@ const Presenter = ({ k, fn }) => (
           justifyContent: "center"
         }}
       >
-        <div
+        {/* <div
           style={{
             position: "relative",
             right: 190
           }}
         >
           <SideNav fn={fn} k={k} />
-        </div>
+        </div> */}
 
         <Card>
           <Row>

@@ -47,6 +47,7 @@ const Presenter = ({ iconLoading, tryLogin, id, pw, handleInput }) => (
         value={id}
         name={"id"}
         onChange={handleInput}
+        size={"large"}
         style={{
           marginTop: "60px",
           marginBottom: "20px",
@@ -58,6 +59,7 @@ const Presenter = ({ iconLoading, tryLogin, id, pw, handleInput }) => (
         value={pw}
         name={"pw"}
         onChange={handleInput}
+        size="large"
         style={{
           marginBottom: "20px",
           fontSize: 17

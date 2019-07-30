@@ -72,17 +72,52 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
               연구자 정보 등록
             </NavigationText>
           </a>
-          <a href="/v1/edit-researcher">
-            <NavigationText
-              style={{
-                marginRight: 15,
-                marginLeft: 15
-              }}
-            >
-              {" "}
-              연구자 정보 수정
-            </NavigationText>
-          </a>
+          <div
+            className={styles.container}
+            style={{
+              zIndex: 3
+            }}
+          >
+            <a href="/v1/edit-researcher?k=basic">
+              <NavigationText
+                style={{
+                  marginRight: 15,
+                  marginLeft: 15
+                }}
+              >
+                {" "}
+                연구자 정보 수정
+              </NavigationText>
+            </a>
+            <div className={styles.menu}>
+              <a href={"/v1/edit-researcher?k=basic"}>
+                <NavigationText className={styles.item}>
+                  기본정보
+                </NavigationText>
+              </a>
+              <a href="/v1/edit-researcher?k=degree">
+                <NavigationText className={styles.item}>
+                  학력사항
+                </NavigationText>
+              </a>
+              <a href="/v1/edit-researcher?k=career">
+                <NavigationText className={styles.item}>
+                  경력사항
+                </NavigationText>
+              </a>
+              <a href="/v1/edit-researcher?k=paper">
+                <NavigationText className={styles.item}>
+                  논문실적
+                </NavigationText>
+              </a>
+              <a href="/v1/edit-researcher?k=property">
+                <NavigationText className={styles.item}>
+                  특허 실적
+                </NavigationText>
+              </a>
+            </div>
+          </div>
+
           <a href="/v1/search">
             <NavigationText>조회</NavigationText>
           </a>

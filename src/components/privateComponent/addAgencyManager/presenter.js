@@ -57,14 +57,6 @@ const Presenter = ({
       </MiddleWhiteText>
     </Title>
     <Row>
-      <div
-        style={{
-          position: "relative",
-          right: 160
-        }}
-      >
-        <SideNav fn={fn} />
-      </div>
       <Card>
         <Row>
           <BiggerThanNormal150>아이디</BiggerThanNormal150>

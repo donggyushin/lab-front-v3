@@ -20,7 +20,8 @@ export const MiddleText = styled.div`
 `;
 
 export const MiddleWhiteText = styled.div`
-  font-size: 22px;
+  font-size: 24px;
+  font-weight: 700;
   color: white;
 `;
 
@@ -48,7 +49,8 @@ export const BiggerThanNormal = styled.div`
 `;
 
 export const NavigationText = styled.div`
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 400;
   color: ${Colors.midnightBlue};
   &:hover {
     color: ${Colors.lightBlue};

@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { NormalText, Row } from "../../../constants/styledComponents";
+import {
+  NormalText,
+  Row,
+  BiggerThanNormal150
+} from "../../../constants/styledComponents";
 import { Input, Radio, Button } from "antd";
 import { DateInput } from "@opuscapita/react-dates";
 import SideNav from "../sideNav";
@@ -12,99 +16,72 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 `;
 
 const Inner = styled.div`
-  width: 400px;
+  width: 800px;
   min-height: 200px;
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
 `;
+
+const LongInput = `(
+  <Input
+    style={{
+      width: 350,
+      textAlign: "center"
+    }}
+  />
+)`;
 
 const Presenter = ({ iconLoading, searchButtonTapped, fn, userLevel }) => (
   <Container>
     <Row>
-      <div
+      {/* <div
         style={{
           position: "relative",
           right: 190
         }}
       >
         <SideNav userLevel={userLevel} fn={fn} />
-      </div>
+      </div> */}
       <Inner>
         <Row>
-          <NormalText
-            style={{
-              marginRight: 20
-            }}
-          >
-            연구자 이름
-          </NormalText>
+          <BiggerThanNormal150>이름</BiggerThanNormal150>
           <Input
             style={{
-              width: "150px"
+              width: 350,
+              textAlign: "center"
             }}
           />
         </Row>
-        <Row
-          style={{
-            marginTop: 20
-          }}
-        >
-          <NormalText
-            style={{
-              marginRight: "61px"
-            }}
-          >
-            성별
-          </NormalText>
-          <Radio.Group>
-            <Radio value={"남"}>남</Radio>
-            <Radio value={"여"}>여</Radio>
-          </Radio.Group>
-        </Row>
-        <Row
-          style={{
-            marginTop: 20
-          }}
-        >
-          <NormalText
-            style={{
-              marginRight: 36
-            }}
-          >
-            생년월일
-          </NormalText>
-          <DateInput />
-        </Row>
-        <Row
-          style={{
-            marginTop: 20
-          }}
-        >
-          <NormalText
-            style={{
-              marginRight: 20
-            }}
-          >
-            휴대폰 번호
-          </NormalText>
+        <Row>
+          <BiggerThanNormal150>생년월일</BiggerThanNormal150>
           <Input
             style={{
-              width: 60
+              width: 350,
+              textAlign: "center"
             }}
           />
-          -
+        </Row>
+        <Row>
+          <BiggerThanNormal150>이메일</BiggerThanNormal150>
           <Input
             style={{
-              width: 60
+              width: 350,
+              textAlign: "center"
             }}
           />
-          -
+        </Row>
+        <Row>
+          <BiggerThanNormal150>휴대폰 번호</BiggerThanNormal150>
           <Input
             style={{
-              width: 60
+              width: 350,
+              textAlign: "center"
             }}
           />
         </Row>
