@@ -8,7 +8,7 @@ import {
 } from "../../../constants/styledComponents";
 import Colors from "../../../constants/colors";
 import SideNav from "../sideNav";
-import { Divider } from "antd";
+import { Divider, Input, Button } from "antd";
 
 const Container = styled.div`
   display: flex;
@@ -40,6 +40,17 @@ const Card = styled.div`
   padding-bottom: 150px;
 `;
 
+const Label = styled.div`
+  color: black;
+  font-weight: 900;
+  font-size: 25px;
+  white-space: nowrap;
+`;
+
+const MarginRight = styled.div`
+  width: 20px;
+`;
+
 const Presenter = ({ k, fn }) => (
   <Container>
     <>
@@ -59,6 +70,21 @@ const Presenter = ({ k, fn }) => (
           {k === "property" && "지적재산권 조회"}
         </MiddleWhiteText>
       </TitleContainer>
+      <Row
+        style={{
+          marginTop: 200
+        }}
+      >
+        <Label>과학기술인등록번호</Label>
+        <MarginRight />
+        <Input
+          style={{
+            width: 200
+          }}
+        />
+        <MarginRight />
+        <Button>조회</Button>
+      </Row>
       <Row
         style={{
           width: "100%",

@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { MiddleWhiteText } from "../../../constants/styledComponents";
-import { FaArrowAltCircleRight } from "react-icons/fa";
 import LeftArrow from "./leftArrow";
 import RightArrow from "./rightArrow";
 

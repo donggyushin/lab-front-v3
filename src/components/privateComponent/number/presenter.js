@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import {
   NormalText,
-  Row,
   BiggerThanNormal150
 } from "../../../constants/styledComponents";
 import { Input, Radio, Button } from "antd";
@@ -19,6 +18,11 @@ const Container = styled.div`
   flex-direction: column;
 `;
 
+const Row = styled.div`
+  display: flex;
+  margin-bottom: 30px;
+`;
+
 const Inner = styled.div`
   width: 800px;
   min-height: 200px;
@@ -27,15 +31,6 @@ const Inner = styled.div`
   justify-content: center;
   flex-direction: column;
 `;
-
-const LongInput = `(
-  <Input
-    style={{
-      width: 350,
-      textAlign: "center"
-    }}
-  />
-)`;
 
 const Presenter = ({ iconLoading, searchButtonTapped, fn, userLevel }) => (
   <Container>
