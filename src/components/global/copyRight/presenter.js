@@ -52,11 +52,21 @@ const Presenter = ({ isLoggedIn, userLevel }) => (
             <WhiteBigText>과학기술인 등록번호 조회</WhiteBigText>
           </a>
         )}
+        {isLoggedIn === true && userLevel === "intergrated" && (
+          <a href="/v1/add-manager">
+            <WhiteBigText>기관 관리자 추가</WhiteBigText>
+          </a>
+        )}
       </Column>
       <Column>
         {isLoggedIn === true && userLevel === "normal" && (
           <a href="/v1/add-researcher">
             <WhiteBigText>연구자 정보 등록</WhiteBigText>
+          </a>
+        )}
+        {isLoggedIn === true && userLevel === "intergrated" && (
+          <a href="/v1/remove-manager">
+            <WhiteBigText>기관 관리자 삭제</WhiteBigText>
           </a>
         )}
         {isLoggedIn === true && userLevel === "agencyAdmin" && (

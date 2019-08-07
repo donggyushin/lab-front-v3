@@ -145,7 +145,7 @@ const Presenter = ({ fn, userLevel, k }) => (
       <RightArrow text={"기관관리자 삭제"} to={"/v1/remove-manager"} />
     )}
     {userLevel === "intergrated" && fn === "remove-manager" && (
-      <LeftArrow text={"기관관리자 삭제"} to={"/v1/add-manager"} />
+      <LeftArrow text={"기관관리자 추가"} to={"/v1/add-manager"} />
     )}
     <MiddleWhiteText
       style={{
