@@ -5,14 +5,89 @@ import { WhiteText, Row } from "../../../constants/styledComponents";
 
 const Container = styled.div`
   background: ${Colors.midnightBlue};
-  height: 150px;
+  min-height: 150px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
   padding-right: 36px;
+  padding-bottom: 20px;
+`;
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
 `;
 
-const Presenter = () => (
+const WhiteBigText = styled.div`
+  color: white;
+  font-weight: 600;
+  margin-bottom: 15px;
+`;
+
+const GreyNormalText = styled.div`
+  color: white;
+  opacity: 0.7;
+`;
+
+const Presenter = ({ isLoggedIn, userLevel }) => (
   <Container>
+    <Row
+      style={{
+        width: "100%",
+        paddingLeft: 100,
+        marginBottom: 50,
+        alignItems: "flex-start",
+        marginTop: 30
+      }}
+    >
+      <Column>
+        {isLoggedIn === true && userLevel === "normal" && (
+          <a href="/v1/search-num">
+            <WhiteBigText>과학기술인 등록번호 조회</WhiteBigText>
+          </a>
+        )}
+      </Column>
+      <Column>
+        {isLoggedIn === true && userLevel === "normal" && (
+          <a href="/v1/add-researcher">
+            <WhiteBigText>연구자 정보 등록</WhiteBigText>
+          </a>
+        )}
+      </Column>
+      <Column>
+        {isLoggedIn === true && userLevel === "normal" && (
+          <>
+            <a href="/v1/edit-researcher?k=basic">
+              <WhiteBigText>연구자 정보 수정</WhiteBigText>
+            </a>
+            <a href="/v1/edit-researcher?k=basic">
+              <GreyNormalText>기본정보</GreyNormalText>
+            </a>
+            <a href="/v1/edit-researcher?k=degree">
+              <GreyNormalText>학력사항</GreyNormalText>
+            </a>
+            <a href="/v1/edit-researcher?k=career">
+              <GreyNormalText>경력사항</GreyNormalText>
+            </a>
+            <a href="/v1/edit-researcher?k=paper">
+              <GreyNormalText>논문실적</GreyNormalText>
+            </a>
+            <a href="/v1/edit-researcher?k=property">
+              <GreyNormalText>특허실적</GreyNormalText>
+            </a>
+          </>
+        )}
+      </Column>
+      <Column>
+        {isLoggedIn === true && userLevel === "normal" && (
+          <a href={"/v1/search"}>
+            <WhiteBigText>조회</WhiteBigText>
+          </a>
+        )}
+      </Column>
+    </Row>
+
     <Row
       style={{
         justifyContent: "center"

@@ -40,7 +40,7 @@ class AppContainer extends React.Component {
           />
         </div>
         {isLoggedIn ? <PrivateComponent /> : <PublicComponent />}
-        <Copyright />
+        <Copyright isLoggedIn={isLoggedIn} userLevel={userLevel} />
       </Container>
     );
   }

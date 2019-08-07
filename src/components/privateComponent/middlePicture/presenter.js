@@ -51,12 +51,39 @@ const Presenter = ({ fn, userLevel, k }) => (
         to={"/v1/edit-researcher?k=basic"}
       />
     )}
-    {userLevel === "normal" && fn === "edit-researcher" && (
-      <LeftArrow text={"연구자 정보 등록"} to={"/v1/add-researcher"} />
+    {/* 연구자 정보 수정 부분 */}
+    {userLevel === "normal" && fn === "edit-researcher" && k === "basic" && (
+      <LeftArrow text={"특허 실적"} to={"/v1/edit-researcher?k=property"} />
     )}
-    {userLevel === "normal" && fn === "edit-researcher" && (
-      <RightArrow text={"조회"} to={"/v1/search"} />
+    {userLevel === "normal" && fn === "edit-researcher" && k === "basic" && (
+      <RightArrow text={"학력 사항"} to={"/v1/edit-researcher?k=degree"} />
     )}
+    {userLevel === "normal" && fn === "edit-researcher" && k === "degree" && (
+      <LeftArrow text={"기본 정보"} to={"/v1/edit-researcher?k=basic"} />
+    )}
+    {userLevel === "normal" && fn === "edit-researcher" && k === "degree" && (
+      <RightArrow text={"경력 사항"} to={"/v1/edit-researcher?k=career"} />
+    )}
+    {userLevel === "normal" && fn === "edit-researcher" && k === "career" && (
+      <LeftArrow text={"학력 정보"} to={"/v1/edit-researcher?k=degree"} />
+    )}
+    {userLevel === "normal" && fn === "edit-researcher" && k === "career" && (
+      <RightArrow text={"논문 실적"} to={"/v1/edit-researcher?k=paper"} />
+    )}
+    {userLevel === "normal" && fn === "edit-researcher" && k === "paper" && (
+      <LeftArrow text={"경력 사항"} to={"/v1/edit-researcher?k=career"} />
+    )}
+    {userLevel === "normal" && fn === "edit-researcher" && k === "paper" && (
+      <RightArrow text={"특허 실적"} to={"/v1/edit-researcher?k=property"} />
+    )}
+    {userLevel === "normal" && fn === "edit-researcher" && k === "property" && (
+      <LeftArrow text={"논문 실적"} to={"/v1/edit-researcher?k=paper"} />
+    )}
+    {userLevel === "normal" && fn === "edit-researcher" && k === "property" && (
+      <RightArrow text={"기본 정보"} to={"/v1/edit-researcher?k=basic"} />
+    )}
+
+    {/* 연구자 정보 수정 부분 */}
     {userLevel === "normal" && fn === "search" && (
       <LeftArrow text={"연구자 정보 수정"} to={"/v1/edit-researcher?k=basic"} />
     )}
