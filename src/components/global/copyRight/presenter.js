@@ -47,12 +47,39 @@ const Presenter = ({ isLoggedIn, userLevel }) => (
             <WhiteBigText>과학기술인 등록번호 조회</WhiteBigText>
           </a>
         )}
+        {isLoggedIn === true && userLevel === "agencyAdmin" && (
+          <a href="/v1/search-num">
+            <WhiteBigText>과학기술인 등록번호 조회</WhiteBigText>
+          </a>
+        )}
       </Column>
       <Column>
         {isLoggedIn === true && userLevel === "normal" && (
           <a href="/v1/add-researcher">
             <WhiteBigText>연구자 정보 등록</WhiteBigText>
           </a>
+        )}
+        {isLoggedIn === true && userLevel === "agencyAdmin" && (
+          <>
+            <a href="/v1/search-researcher?k=basic">
+              <WhiteBigText>연구자 정보 조회</WhiteBigText>
+            </a>
+            <a href="/v1/search-researcher?k=basic">
+              <GreyNormalText>기본정보</GreyNormalText>
+            </a>
+            <a href="/v1/search-researcher?k=degree">
+              <GreyNormalText>학력사항</GreyNormalText>
+            </a>
+            <a href="/v1/search-researcher?k=career">
+              <GreyNormalText>경력사항</GreyNormalText>
+            </a>
+            <a href="/v1/search-researcher?k=paper">
+              <GreyNormalText>논문실적</GreyNormalText>
+            </a>
+            <a href="/v1/search-researcher?k=property">
+              <GreyNormalText>특허실적</GreyNormalText>
+            </a>
+          </>
         )}
       </Column>
       <Column>

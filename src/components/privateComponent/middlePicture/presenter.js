@@ -27,15 +27,66 @@ const Presenter = ({ fn, userLevel, k }) => (
       }}
       src={"https://www.kisti.re.kr/resources/images/lead/main2.jpg"}
     />
-    {fn === "search-researcher" && userLevel === "agencyAdmin" && (
-      <LeftArrow text={"과학기술인등록번호 조회"} to={"/v1/search-num"} />
-    )}
+    {/* 기관 관리자유저일때 */}
+    {fn === "search-researcher" &&
+      userLevel === "agencyAdmin" &&
+      k === "basic" && (
+        <>
+          <LeftArrow
+            text={"지적 재산권 실적"}
+            to={"/v1/search-researcher?k=property"}
+          />
+          <RightArrow
+            text={"학력 사항"}
+            to={"/v1/search-researcher?k=degree"}
+          />
+        </>
+      )}
+    {fn === "search-researcher" &&
+      userLevel === "agencyAdmin" &&
+      k === "degree" && (
+        <>
+          <LeftArrow text={"기본 정보"} to={"/v1/search-researcher?k=basic"} />
+          <RightArrow
+            text={"경력 사항"}
+            to={"/v1/search-researcher?k=career"}
+          />
+        </>
+      )}
+    {fn === "search-researcher" &&
+      userLevel === "agencyAdmin" &&
+      k === "career" && (
+        <>
+          <LeftArrow text={"학력 사항"} to={"/v1/search-researcher?k=degree"} />
+          <RightArrow text={"논문 실적"} to={"/v1/search-researcher?k=paper"} />
+        </>
+      )}
+    {fn === "search-researcher" &&
+      userLevel === "agencyAdmin" &&
+      k === "paper" && (
+        <>
+          <LeftArrow text={"경력 사항"} to={"/v1/search-researcher?k=career"} />
+          <RightArrow
+            text={"지적재산권 실적"}
+            to={"/v1/search-researcher?k=property"}
+          />
+        </>
+      )}
+    {fn === "search-researcher" &&
+      userLevel === "agencyAdmin" &&
+      k === "property" && (
+        <>
+          <LeftArrow text={"논문 실적"} to={"/v1/search-researcher?k=paper"} />
+          <RightArrow text={"기본 정보"} to={"/v1/search-researcher?k=basic"} />
+        </>
+      )}
     {fn === "search-num" && userLevel === "agencyAdmin" && (
       <RightArrow
         text={"연구자 정보 조회"}
         to={"/v1/search-researcher?k=basic"}
       />
     )}
+    {/* 기관 관리자유저일때 */}
     {userLevel === "normal" && fn === "search-num" && (
       <LeftArrow text={"조회"} to={"/v1/search"} />
     )}
