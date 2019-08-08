@@ -46,7 +46,7 @@ class EditResearcher extends React.Component {
         </Title>
         {k === "property" && (
           <>
-            <Row>
+            {/* <Row>
               <BiggerThanNormal150>특허명</BiggerThanNormal150>
               <MarginRight />
               <Input
@@ -99,12 +99,12 @@ class EditResearcher extends React.Component {
                   width: 350
                 }}
               />
-            </Row>
+            </Row> */}
           </>
         )}
         {k === "paper" && (
           <>
-            <Row>
+            {/* <Row>
               <BiggerThanNormal150>논문 제목(국문)</BiggerThanNormal150>
               <MarginRight />
               <Input
@@ -193,12 +193,12 @@ class EditResearcher extends React.Component {
                   width: 350
                 }}
               />
-            </Row>
+            </Row> */}
           </>
         )}
         {k === "career" && (
           <>
-            <Row>
+            {/* <Row>
               <BiggerThanNormal150>근무기관명</BiggerThanNormal150>
               <MarginRight />
               <Input
@@ -233,7 +233,7 @@ class EditResearcher extends React.Component {
                   width: 350
                 }}
               />
-            </Row>
+            </Row> */}
           </>
         )}
         {k === "degree" && (

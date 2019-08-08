@@ -13,11 +13,6 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const ArrowText = styled.div`
-  color: white;
-  z-index: 2;
-`;
-
 const Presenter = ({ fn, userLevel, k }) => (
   <Container>
     <img
@@ -80,14 +75,15 @@ const Presenter = ({ fn, userLevel, k }) => (
           <RightArrow text={"기본 정보"} to={"/v1/search-researcher?k=basic"} />
         </>
       )}
-    {fn === "search-num" && userLevel === "agencyAdmin" && (
+    {/* {fn === "search-num" && userLevel === "agencyAdmin" && (
       <RightArrow
         text={"연구자 정보 조회"}
         to={"/v1/search-researcher?k=basic"}
-      />
+      /> */}
     )}
     {/* 기관 관리자유저일때 */}
-    {userLevel === "normal" && fn === "search-num" && (
+    {/* 일반 유저일때 */}
+    {/* {userLevel === "normal" && fn === "search-num" && (
       <LeftArrow text={"조회"} to={"/v1/search"} />
     )}
     {userLevel === "normal" && fn === "search-num" && (
@@ -101,7 +97,8 @@ const Presenter = ({ fn, userLevel, k }) => (
         text={"연구자 정보 수정"}
         to={"/v1/edit-researcher?k=basic"}
       />
-    )}
+    )} */}
+    {/* 일반 유저일때 */}
     {/* 연구자 정보 수정 부분 */}
     {userLevel === "normal" && fn === "edit-researcher" && k === "basic" && (
       <LeftArrow text={"특허 실적"} to={"/v1/edit-researcher?k=property"} />
@@ -133,20 +130,23 @@ const Presenter = ({ fn, userLevel, k }) => (
     {userLevel === "normal" && fn === "edit-researcher" && k === "property" && (
       <RightArrow text={"기본 정보"} to={"/v1/edit-researcher?k=basic"} />
     )}
-
     {/* 연구자 정보 수정 부분 */}
-    {userLevel === "normal" && fn === "search" && (
+    {/* 일반 유저 연구자 조회 부분 */}
+    {/* {userLevel === "normal" && fn === "search" && (
       <LeftArrow text={"연구자 정보 수정"} to={"/v1/edit-researcher?k=basic"} />
     )}
     {userLevel === "normal" && fn === "search" && (
       <RightArrow text={"과학기술인등록번호 조회"} to={"/v1/search-num"} />
-    )}
-    {userLevel === "intergrated" && fn === "add-manager" && (
+    )} */}
+    {/* 일반 유저 연구자 조회 부분 */}
+    {/* 기관 관리자 부분 */}
+    {/* {userLevel === "intergrated" && fn === "add-manager" && (
       <RightArrow text={"기관관리자 삭제"} to={"/v1/remove-manager"} />
     )}
     {userLevel === "intergrated" && fn === "remove-manager" && (
       <LeftArrow text={"기관관리자 추가"} to={"/v1/add-manager"} />
-    )}
+    )} */}
+    {/* 기관 관리자 부분 */}
     <MiddleWhiteText
       style={{
         zIndex: 2
