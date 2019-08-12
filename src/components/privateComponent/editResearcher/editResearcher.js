@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Input, Radio, Button } from "antd";
 import { BiggerThanNormal150 } from "../../../constants/styledComponents";
+import Career from "./Career";
+import Career2 from "./Career2";
 
 const Container = styled.div`
   display: flex;
@@ -198,6 +200,8 @@ class EditResearcher extends React.Component {
         )}
         {k === "career" && (
           <>
+            {/* <Career /> */}
+            <Career2 />
             {/* <Row>
               <BiggerThanNormal150>근무기관명</BiggerThanNormal150>
               <MarginRight />
@@ -310,6 +314,14 @@ class EditResearcher extends React.Component {
                 }}
               />
             </Row>
+            <Button
+              style={{
+                marginTop: 50,
+                width: 200
+              }}
+            >
+              등록하기
+            </Button>
           </>
         )}
         {k === "basic" && (
@@ -446,17 +458,16 @@ class EditResearcher extends React.Component {
                 }}
               />
             </Row>
+            <Button
+              style={{
+                marginTop: 50,
+                width: 200
+              }}
+            >
+              등록하기
+            </Button>
           </>
         )}
-
-        <Button
-          style={{
-            marginTop: 50,
-            width: 200
-          }}
-        >
-          등록하기
-        </Button>
       </Container>
     );
   }
