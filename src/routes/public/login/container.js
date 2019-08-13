@@ -9,7 +9,7 @@ class Container extends React.Component {
     pw: ""
   };
   render() {
-    const { tryLogin, handleInput } = this;
+    const { tryLogin, handleInput, EnterKeyPressed } = this;
     const { iconLoading, id, pw } = this.state;
     return (
       <Presenter
@@ -18,9 +18,17 @@ class Container extends React.Component {
         iconLoading={iconLoading}
         tryLogin={tryLogin}
         handleInput={handleInput}
+        EnterKeyPressed={EnterKeyPressed}
       />
     );
   }
+
+  EnterKeyPressed = e => {
+    const { key } = e;
+    if (key === "Enter") {
+      this.tryLogin();
+    }
+  };
 
   tryLogin = () => {
     const { id, pw } = this.state;

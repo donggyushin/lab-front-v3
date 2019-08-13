@@ -33,7 +33,14 @@ const Title = styled.div`
   font-weight: 900;
 `;
 
-const Presenter = ({ iconLoading, tryLogin, id, pw, handleInput }) => (
+const Presenter = ({
+  iconLoading,
+  tryLogin,
+  id,
+  pw,
+  handleInput,
+  EnterKeyPressed
+}) => (
   <Container>
     <Card>
       {/* <Title>KISTI</Title> */}
@@ -65,6 +72,7 @@ const Presenter = ({ iconLoading, tryLogin, id, pw, handleInput }) => (
           fontSize: 17
         }}
         placeholder={"비밀번호를 입력해주세요. "}
+        onKeyPress={EnterKeyPressed}
       />
       <Button
         type="primary"

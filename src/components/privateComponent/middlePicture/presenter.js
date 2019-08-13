@@ -159,6 +159,8 @@ const Presenter = ({ fn, userLevel, k }) => (
       {fn === "add-manager" && "기관관리자 추가"}
       {fn === "remove-manager" && "기관관리자 삭제"}
       {fn === "search" && "연구자 조회"}
+      {fn === "edit-researcher-detail" && "연구자 정보 수정"}
+      {fn === "search-researcher-detail" && "연구자 조회"}
     </MiddleWhiteText>
   </Container>
 );

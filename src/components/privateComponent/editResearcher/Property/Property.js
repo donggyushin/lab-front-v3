@@ -13,22 +13,22 @@ const Title = styled.div`
   cursor: pointer;
 `;
 
-class Career2 extends React.Component {
+class Propery extends React.Component {
   render() {
     return (
       <Container>
-        <a href={"/v1/edit-researcher-detail?k=career&t=1"}>
-          <Title>Career1</Title>
+        <a href={"/v1/edit-researcher-detail?k=property&t=1"}>
+          <Title>Property1</Title>
         </a>
-        <a href={"/v1/edit-researcher-detail?k=career&t=2"}>
-          <Title>Career2</Title>
+        <a href={"/v1/edit-researcher-detail?k=property&t=2"}>
+          <Title>Property2</Title>
         </a>
-        <a href={"/v1/edit-researcher-detail?k=career&t=3"}>
-          <Title>Career3</Title>
+        <a href={"/v1/edit-researcher-detail?k=property&t=3"}>
+          <Title>Property3</Title>
         </a>
       </Container>
     );
   }
 }
 
-export default Career2;
+export default Propery;

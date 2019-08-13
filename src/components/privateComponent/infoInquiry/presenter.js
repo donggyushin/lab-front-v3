@@ -9,6 +9,9 @@ import {
 import Colors from "../../../constants/colors";
 import SideNav from "../sideNav";
 import { Divider, Input, Button } from "antd";
+import Basic from "./Basic";
+import Degree from "./Degree";
+import Career from "./Career";
 
 const Container = styled.div`
   display: flex;
@@ -100,61 +103,9 @@ const Presenter = ({ k, fn }) => (
           <SideNav fn={fn} k={k} />
         </div> */}
 
-        <Card>
-          <Row>
-            <BiggerThanNormal>연구자 과학기술인등록번호 : </BiggerThanNormal>
-            <BiggerThanNormal> 349085</BiggerThanNormal>
-          </Row>
-          <Divider />
-          <Row>
-            <BiggerThanNormal>
-              {(k === null || k === "basic") && "연구자 이름(국문) : "}
-              {k === "degree" && "학교명 : "}
-              {k === "career" && "근무지명 : "}
-              {k === "paper" && "논문 제목(국문) : "}
-              {k === "property" && "특허명 : "}
-            </BiggerThanNormal>
-            <BiggerThanNormal> 홍길동</BiggerThanNormal>
-          </Row>
-          <Divider />
-          <Row>
-            <BiggerThanNormal>
-              {(k === null || k === "basic") && "연구자 이름(영문) : "}
-              {k === "degree" && "학과명 : "}
-              {k === "career" && "직급명 : "}
-              {k === "paper" && "논문 제목(영어) : "}
-              {k === "property" && "특허구분 : "}
-            </BiggerThanNormal>
-            <BiggerThanNormal> Hong gil dong</BiggerThanNormal>
-          </Row>
-          <Divider />
-          <Row>
-            <BiggerThanNormal>
-              {(k === null || k === "basic") && "생년월일 : "}
-              {k === "degree" && "전공명 : "}
-              {k === "career" && "근무시작일 : "}
-              {k === "paper" && "저자명 : "}
-              {k === "property" && "특허번호 : "}
-            </BiggerThanNormal>
-            <BiggerThanNormal> 2019년 5월 13일</BiggerThanNormal>
-          </Row>
-
-          {k !== null && k !== "basic" && <Divider />}
-          <Row>
-            <BiggerThanNormal>
-              {k === "degree" && "지도교수명 : "}
-              {k === "career" && "근무시작일 : "}
-              {k === "paper" && "저자역할 : "}
-              {k === "property" && "발명인 : "}
-            </BiggerThanNormal>
-            <BiggerThanNormal>
-              {k === "degree" && "박현희"}
-              {k === "career" && "오늘 "}
-              {k === "paper" && "슈퍼맨 "}
-              {k === "property" && "나 "}
-            </BiggerThanNormal>
-          </Row>
-        </Card>
+        {(k === null || k === "basic") && <Basic />}
+        {k === "degree" && <Degree />}
+        {k === "career" && <Career />}
       </Row>
     </>
   </Container>

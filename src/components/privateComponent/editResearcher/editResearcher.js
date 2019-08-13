@@ -4,6 +4,8 @@ import { Input, Radio, Button } from "antd";
 import { BiggerThanNormal150 } from "../../../constants/styledComponents";
 import Career from "./Career";
 import Career2 from "./Career2";
+import Paper from "./Paper";
+import Property from "./Property";
 
 const Container = styled.div`
   display: flex;
@@ -48,6 +50,7 @@ class EditResearcher extends React.Component {
         </Title>
         {k === "property" && (
           <>
+            <Property />
             {/* <Row>
               <BiggerThanNormal150>특허명</BiggerThanNormal150>
               <MarginRight />
@@ -106,6 +109,7 @@ class EditResearcher extends React.Component {
         )}
         {k === "paper" && (
           <>
+            <Paper />
             {/* <Row>
               <BiggerThanNormal150>논문 제목(국문)</BiggerThanNormal150>
               <MarginRight />
