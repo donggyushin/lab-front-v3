@@ -68,7 +68,7 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
               zIndex: 3
             }}
           >
-            <a href="/v1/add-researcher">
+            <a href="/v1/add-researcher-degree?k=degree">
               <NavigationText
                 style={{
                   marginRight: 15,
@@ -79,27 +79,27 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
               </NavigationText>
             </a>
             <div className={styles.menu}>
-              <a href={"#"}>
+              {/* <a href={"#"}>
                 <NavigationText className={styles.item}>
                   기본정보
                 </NavigationText>
-              </a>
-              <a href="#">
+              </a> */}
+              <a href="/v1/add-researcher-degree">
                 <NavigationText className={styles.item}>
                   학력사항
                 </NavigationText>
               </a>
-              <a href="#">
+              <a href="/v1/add-researcher-career">
                 <NavigationText className={styles.item}>
                   경력사항
                 </NavigationText>
               </a>
-              <a href="#">
+              <a href="/v1/add-researcher-paper">
                 <NavigationText className={styles.item}>
                   논문실적
                 </NavigationText>
               </a>
-              <a href="#">
+              <a href="/v1/add-researcher-patent">
                 <NavigationText className={styles.item}>
                   특허 실적
                 </NavigationText>
@@ -112,7 +112,8 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
               zIndex: 3
             }}
           >
-            <a href="/v1/edit-researcher?k=basic">
+            {/* <a href="/v1/edit-researcher?k=basic"> */}
+            <a href="/v1/edit-researcher-basic">
               <NavigationText
                 style={{
                   marginRight: 15,
@@ -124,27 +125,27 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
               </NavigationText>
             </a>
             <div className={styles.menu}>
-              <a href={"/v1/edit-researcher?k=basic"}>
+              <a href={"/v1/edit-researcher-basic"}>
                 <NavigationText className={styles.item}>
                   기본정보
                 </NavigationText>
               </a>
-              <a href="/v1/edit-researcher?k=degree">
+              <a href="/v1/edit-researcher-degree">
                 <NavigationText className={styles.item}>
                   학력사항
                 </NavigationText>
               </a>
-              <a href="/v1/edit-researcher?k=career">
+              <a href="/v1/edit-researcher-career">
                 <NavigationText className={styles.item}>
                   경력사항
                 </NavigationText>
               </a>
-              <a href="/v1/edit-researcher?k=paper">
+              <a href="/v1/edit-researcher-paper">
                 <NavigationText className={styles.item}>
                   논문실적
                 </NavigationText>
               </a>
-              <a href="/v1/edit-researcher?k=property">
+              <a href="/v1/edit-researcher-patent">
                 <NavigationText className={styles.item}>
                   특허 실적
                 </NavigationText>

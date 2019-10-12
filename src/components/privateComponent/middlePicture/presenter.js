@@ -152,6 +152,17 @@ const Presenter = ({ fn, userLevel, k }) => (
         zIndex: 2
       }}
     >
+      {fn === "add-researcher-degree" && "연구자 학력 등록"}
+      {fn === "add-researcher-career" && "연구자 경력 등록"}
+      {fn === "add-researcher-patent" && "연구자 특허 등록"}
+      {fn === "add-researcher-paper" && "연구자 논문 등록"}
+
+      {fn === "edit-researcher-basic" && "연구자 기본 정보 변경"}
+      {fn === "edit-researcher-degree" && "연구자 학력 정보 변경"}
+      {fn === "edit-researcher-patent" && "연구자 특허 정보 변경"}
+      {fn === "edit-researcher-career" && "연구자 경력 정보 변경"}
+      {fn === "edit-researcher-paper" && "연구자 논문 정보 변경"}
+
       {fn === "search-num" && "과학기술인등록번호 조회"}
       {fn === "add-researcher" && "연구자 정보 등록"}
       {fn === "edit-researcher" && "연구자 정보 수정"}

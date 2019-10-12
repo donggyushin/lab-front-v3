@@ -11,6 +11,15 @@ import EditCareerDetail from "../../../components/privateComponent/editResearche
 import EditPaperDetail from "../../../components/privateComponent/editResearcher/Paper/EditPaperDetail";
 import EditPropertyDetail from "../../../components/privateComponent/editResearcher/Property/EditPropertyDetail";
 import CareerDetail from "../../../components/privateComponent/infoInquiry/Career/CareerDetail";
+import AddResearcherDegree from "./AddResearcherDegree/AddResearcherDegree";
+import AddResearcherCareer from "./AddResearcherCareer";
+import AddResearcherPaper from "./AddResearcherPaper";
+import AddResearcherPatent from "./AddResearcherPatent";
+import EditResearcherBasic from "./EditResearcherBasic";
+import EditResearcherDegree from "./EditResearcherDegree";
+import EditResearcherCareer from "./EditResearcherCareer/Career";
+import EditResearcherPatent from "./EditResearcherPatent";
+import EditResearcherPaper from "./EditResearcherPaper";
 
 const Container = styled.div``;
 
@@ -20,11 +29,26 @@ const Presenter = ({ fn, k, userLevel }) => {
       <MiddlePicture fn={fn} userLevel={userLevel} k={k} />
       {fn === "search-num" && <SearchNumber userLevel={userLevel} fn={fn} />}
       {fn === "search-researcher" && <InfoInquiry fn={fn} k={k} />}
+
       {(fn === "add-manager" || fn === "remove-manager") && (
         <AgencyManager fn={fn} />
       )}
       {fn === "search" && <ResearchInfo />}
-      {fn === "add-researcher" && <AddResearcher fn={fn} />}
+      {/* 연구자 등록 부분 */}
+      {/* {fn === "add-researcher-degree" && <AddResearcher fn={fn} />} */}
+      {fn === "add-researcher-degree" && <AddResearcherDegree />}
+      {fn === "add-researcher-career" && <AddResearcherCareer />}
+      {fn === "add-researcher-paper" && <AddResearcherPaper />}
+      {fn === "add-researcher-patent" && <AddResearcherPatent />}
+      {/* 연구자 등록 부분 */}
+      {/* 연구자 수정 부분 */}
+      {fn === "edit-researcher-basic" && <EditResearcherBasic />}
+      {fn === "edit-researcher-career" && <EditResearcherCareer />}
+      {fn === "edit-researcher-paper" && <EditResearcherPaper />}
+      {fn === "edit-researcher-patent" && <EditResearcherPatent />}
+      {fn === "edit-researcher-degree" && <EditResearcherDegree />}
+      {/* 연구자 수정 부분 */}
+
       {fn === "edit-researcher" && <EditResearcher fn={fn} k={k} />}
       {fn === "edit-researcher-detail" && k === "career" && (
         <EditCareerDetail />

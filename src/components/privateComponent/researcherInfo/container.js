@@ -57,7 +57,7 @@ class Container extends React.Component {
 
           // 특허실적 불러오기
           const PatentInfoClient = new W3CWebSocket(
-            websocketUri + "/patentInfo/1"
+            websocketUri + `/patentInfo/${data.user.scienceId}`
           );
           PatentInfoClient.onopen = () => {
             console.log("Patent WebSocket Client Connected");
@@ -82,7 +82,7 @@ class Container extends React.Component {
 
           // 학력실적 불러오기
           const DegreeInfoClient = new W3CWebSocket(
-            websocketUri + "/degreeInfo/1"
+            websocketUri + `/degreeInfo/${data.user.scienceId}`
           );
           DegreeInfoClient.onopen = () => {
             console.log("Degree WebSocket Client Connected");
@@ -106,7 +106,7 @@ class Container extends React.Component {
 
           // 경력실적 불러오기
           const CareerInfoClient = new W3CWebSocket(
-            websocketUri + "/careerInfo/1"
+            websocketUri + `/careerInfo/${data.user.scienceId}`
           );
           CareerInfoClient.onopen = () => {
             console.log("Career WebSocket Client Connected");
@@ -131,7 +131,7 @@ class Container extends React.Component {
 
           // 기본실적 불러오기
           const BasicInfoClient = new W3CWebSocket(
-            websocketUri + "/basicInfo/1"
+            websocketUri + `/basicInfo/${data.user.scienceId}`
           );
           BasicInfoClient.onopen = () => {
             console.log("WebSocket Client Connected");
