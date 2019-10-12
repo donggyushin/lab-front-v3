@@ -24,6 +24,7 @@ const Inner = styled.div`
 
 
 const Presenter = ({ 
+    scienceId,
     iconLoading,
     name,
     birth,
@@ -77,6 +78,7 @@ const Presenter = ({
                 <SeaBrookText>(선택입력)</SeaBrookText>
                 <NormalText>을 제외한 모든 항목은 필수 입력입니다. </NormalText>
             </Row>
+            
             <Divider />
             <Row>
                 <Column style={{
@@ -125,6 +127,17 @@ const Presenter = ({
                         <Radio value={'내국인'}>내국인</Radio>
                         <Radio value={'외국인'}>외국인</Radio>
                     </Radio.Group>
+                </Column>
+            </Row>
+            <Row>
+            <Column style={{
+                    marginRight: "30px",
+                    marginTop:"20px"
+                }}>
+                    <MiddleText style={{
+                        marginBottom: "16px"
+                    }}>과학기술인등록번호</MiddleText>
+                    <Input name={'scienceId'} onChange={handleInput} value={scienceId}></Input>
                 </Column>
             </Row>
             <Divider style={{

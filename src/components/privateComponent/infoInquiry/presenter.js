@@ -12,6 +12,8 @@ import { Divider, Input, Button } from "antd";
 import Basic from "./Basic";
 import Degree from "./Degree";
 import Career from "./Career";
+import PaperComponent from "./Paper";
+import PatentComponent from "./Patent";
 
 const Container = styled.div`
   display: flex;
@@ -54,7 +56,30 @@ const MarginRight = styled.div`
   width: 20px;
 `;
 
-const Presenter = ({ k, fn }) => (
+const MarginBottom = styled.div`
+  height: 200px;
+`;
+
+const HorizontalScroll = styled.div`
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+
+  justify-content: center;
+`;
+
+const Presenter = ({
+  k,
+  fn,
+  searchButtonClicked,
+  scienceId,
+  handleInput,
+  basicInfo,
+  careerInfos,
+  paperInfos,
+  patentInfos,
+  degreeInfos
+}) => (
   <Container>
     <>
       <TitleContainer>
@@ -81,12 +106,15 @@ const Presenter = ({ k, fn }) => (
         <Label>과학기술인등록번호</Label>
         <MarginRight />
         <Input
+          onChange={handleInput}
           style={{
             width: 200
           }}
+          value={scienceId}
+          name={"scienceId"}
         />
         <MarginRight />
-        <Button>조회</Button>
+        <Button onClick={searchButtonClicked}>조회</Button>
       </Row>
       <Row
         style={{
@@ -103,10 +131,49 @@ const Presenter = ({ k, fn }) => (
           <SideNav fn={fn} k={k} />
         </div> */}
 
-        {(k === null || k === "basic") && <Basic />}
-        {k === "degree" && <Degree />}
-        {k === "career" && <Career />}
+        {(k === null || k === "basic") && basicInfo.과학기술인등록번호 && (
+          <Basic basicInfo={basicInfo} />
+        )}
+        <HorizontalScroll>
+          {k === "degree" &&
+            degreeInfos.map(degreeInfo => {
+              return (
+                <Degree
+                  key={degreeInfo.과학기술인등록번호}
+                  degreeInfo={degreeInfo}
+                />
+              );
+            })}
+          {k === "career" &&
+            careerInfos.map(careerInfo => {
+              return (
+                <Career
+                  key={careerInfo.과학기술인등록번호}
+                  careerInfo={careerInfo}
+                />
+              );
+            })}
+          {k === "paper" &&
+            paperInfos.map(paperInfo => {
+              return (
+                <PaperComponent
+                  key={paperInfo.과학기술인등록번호}
+                  paperInfo={paperInfo}
+                />
+              );
+            })}
+          {k === "property" &&
+            patentInfos.map(patentInfo => {
+              return (
+                <PatentComponent
+                  key={patentInfo.과학기술인등록번호}
+                  patentInfo={patentInfo}
+                />
+              );
+            })}
+        </HorizontalScroll>
       </Row>
+      <MarginBottom />
     </>
   </Container>
 );

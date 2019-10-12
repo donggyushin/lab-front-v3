@@ -42,7 +42,8 @@ class Container extends React.Component {
     organization: "",
     recommender: "",
     instit_job: "",
-    idDoublechecked: false
+    idDoublechecked: false,
+    scienceId: ""
   };
   render() {
     const {
@@ -78,7 +79,8 @@ class Container extends React.Component {
       position,
       organization,
       recommender,
-      instit_job
+      instit_job,
+      scienceId
     } = this.state;
     const {
       searchPostCodeButtonTapped,
@@ -92,6 +94,7 @@ class Container extends React.Component {
     } = this;
     return (
       <Presenter
+        scienceId={scienceId}
         validationCheck={validationCheck}
         doublecheckButtonTapped={doublecheckButtonTapped}
         handleJob={handleJob}
@@ -189,6 +192,11 @@ class Container extends React.Component {
     const { value, name } = e.target;
 
     switch (name) {
+      case "scienceId":
+        this.setState({
+          scienceId: value
+        });
+        break;
       case "name":
         this.setState({
           name: value
@@ -373,10 +381,19 @@ class Container extends React.Component {
       usertype,
       fax_no1,
       fax_no2,
-      fax_no3
+      fax_no3,
+      scienceId
     } = this.state;
     const { iconLoadingStart } = this;
     iconLoadingStart();
+
+    if (scienceId === "") {
+      alert("과학기술인 등록번호를 입력해주세요. ");
+      this.setState({
+        iconLoading: false
+      });
+      return;
+    }
 
     if (idDoublechecked == false) {
       alert("아이디 중복체크를 먼저 진행해주세요. ");
@@ -527,7 +544,8 @@ class Container extends React.Component {
       position,
       instit_job,
       is_mailing,
-      recommender
+      recommender,
+      scienceId
     } = this.state;
     const birth_y = String(birth.getFullYear());
     const birth_m = String(birth.getMonth());
@@ -536,6 +554,7 @@ class Container extends React.Component {
     axios
       .post("/api/user/regist", {
         id,
+        scienceId,
         pw,
         birth_y,
         birth_m,

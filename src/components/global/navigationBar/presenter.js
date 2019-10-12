@@ -59,19 +59,53 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
     >
       {userLevel == "normal" && (
         <>
-          <a href="/v1/search-num">
+          {/* <a href="/v1/search-num">
             <NavigationText>과학기술인등록번호 조회</NavigationText>
-          </a>
-          <a href="/v1/add-researcher">
-            <NavigationText
-              style={{
-                marginRight: 15,
-                marginLeft: 15
-              }}
-            >
-              연구자 정보 등록
-            </NavigationText>
-          </a>
+          </a> */}
+          <div
+            className={styles.container}
+            style={{
+              zIndex: 3
+            }}
+          >
+            <a href="/v1/add-researcher">
+              <NavigationText
+                style={{
+                  marginRight: 15,
+                  marginLeft: 15
+                }}
+              >
+                연구자 정보 등록
+              </NavigationText>
+            </a>
+            <div className={styles.menu}>
+              <a href={"#"}>
+                <NavigationText className={styles.item}>
+                  기본정보
+                </NavigationText>
+              </a>
+              <a href="#">
+                <NavigationText className={styles.item}>
+                  학력사항
+                </NavigationText>
+              </a>
+              <a href="#">
+                <NavigationText className={styles.item}>
+                  경력사항
+                </NavigationText>
+              </a>
+              <a href="#">
+                <NavigationText className={styles.item}>
+                  논문실적
+                </NavigationText>
+              </a>
+              <a href="#">
+                <NavigationText className={styles.item}>
+                  특허 실적
+                </NavigationText>
+              </a>
+            </div>
+          </div>
           <div
             className={styles.container}
             style={{

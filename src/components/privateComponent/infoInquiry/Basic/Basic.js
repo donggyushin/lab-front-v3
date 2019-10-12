@@ -13,28 +13,28 @@ const Card = styled.div`
 
 class Basic extends React.Component {
   render() {
+    const { basicInfo } = this.props;
     return (
       <Card>
         <Row>
           <BiggerThanNormal>연구자 과학기술인등록번호 : </BiggerThanNormal>
-          <BiggerThanNormal> 349085</BiggerThanNormal>
+          <BiggerThanNormal> {basicInfo.과학기술인등록번호}</BiggerThanNormal>
         </Row>
         <Divider />
         <Row>
           <BiggerThanNormal>연구자 이름(국문) :</BiggerThanNormal>
-          <BiggerThanNormal> 홍길동</BiggerThanNormal>
+          <BiggerThanNormal>{basicInfo.연구자명_국문}</BiggerThanNormal>
         </Row>
         <Divider />
         <Row>
           <BiggerThanNormal>연구자 이름(영문) :</BiggerThanNormal>
-          <BiggerThanNormal> Hong gil dong</BiggerThanNormal>
+          <BiggerThanNormal>{basicInfo.연구자명_영문}</BiggerThanNormal>
         </Row>
         <Divider />
         <Row>
           <BiggerThanNormal>생년월일 :</BiggerThanNormal>
-          <BiggerThanNormal> 2019년 5월 13일</BiggerThanNormal>
+          <BiggerThanNormal>{basicInfo.생년월일}</BiggerThanNormal>
         </Row>
-
         <Divider />
       </Card>
     );

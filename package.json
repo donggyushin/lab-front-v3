@@ -11,7 +11,9 @@
     "react-icons": "^3.7.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
-    "styled-components": "^4.3.2"
+    "react-websocket": "^2.1.0",
+    "styled-components": "^4.3.2",
+    "websocket": "^1.0.30"
   },
   "scripts": {
     "start": "react-scripts start",

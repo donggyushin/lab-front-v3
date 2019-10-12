@@ -5,17 +5,39 @@ import axios from "axios";
 class Container extends React.Component {
   state = {
     loading: true,
-    userLevel: ""
+    userLevel: "",
+    user: {}
   };
 
   componentDidMount() {
     this.checkUserLevel();
+    this.getUserInfo();
   }
 
   render() {
-    const { loading, userLevel } = this.state;
-    return <Presenter loading={loading} userLevel={userLevel} />;
+    const { loading, userLevel, user } = this.state;
+    return <Presenter loading={loading} user={user} userLevel={userLevel} />;
   }
+
+  getUserInfo = () => {
+    axios
+      .get("/api/user/user", {
+        headers: {
+          token: localStorage.getItem("token")
+        }
+      })
+      .then(res => res.data)
+      .then(data => {
+        if (data.ok === false) {
+          alert(data.error);
+        } else {
+          this.setState({
+            user: data.user
+          });
+        }
+      })
+      .catch(err => console.error(err));
+  };
 
   checkUserLevel = () => {
     axios
