@@ -189,7 +189,7 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
               </a>
               <a href="/v1/search-researcher?k=property">
                 <NavigationText className={styles.item}>
-                  지적 재산권 실적
+                  특허 실적
                 </NavigationText>
               </a>
             </div>
@@ -246,7 +246,7 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
               </a>
               <a href="/v1/search-researcher?k=property">
                 <NavigationText className={styles.item}>
-                  지적 재산권 실적
+                  특허 실적
                 </NavigationText>
               </a>
             </div>

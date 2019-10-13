@@ -104,7 +104,7 @@ const Presenter = ({
           {k === "degree" && "학력사항 조회"}
           {k === "career" && "경력사항 조회"}
           {k === "paper" && "논문실적 조회"}
-          {k === "property" && "지적재산권 조회"}
+          {k === "property" && "특허 조회"}
         </MiddleWhiteText>
       </TitleContainer>
       <Label

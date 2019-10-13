@@ -28,7 +28,7 @@ const Presenter = ({ fn, userLevel, k }) => (
       k === "basic" && (
         <>
           <LeftArrow
-            text={"지적 재산권 실적"}
+            text={"특허 실적"}
             to={"/v1/search-researcher?k=property"}
           />
           <RightArrow
@@ -62,7 +62,7 @@ const Presenter = ({ fn, userLevel, k }) => (
         <>
           <LeftArrow text={"경력 사항"} to={"/v1/search-researcher?k=career"} />
           <RightArrow
-            text={"지적재산권 실적"}
+            text={"특허 실적"}
             to={"/v1/search-researcher?k=property"}
           />
         </>
