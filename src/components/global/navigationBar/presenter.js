@@ -156,9 +156,9 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
       )}
       {userLevel == "agencyAdmin" && (
         <>
-          <a href="/v1/search-num">
+          {/* <a href="/v1/search-num">
             <NavigationText>과학기술인등록번호 조회</NavigationText>
-          </a>
+          </a> */}
 
           <div
             className={styles.container}
