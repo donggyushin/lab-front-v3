@@ -31,7 +31,9 @@ function DetailComponent({
   학교졸업일,
   학위구분,
   학위논문명,
-  handleInput
+  handleInput,
+  고유키,
+  EditButtonClicked
 }) {
   return (
     <Container>
@@ -67,7 +69,7 @@ function DetailComponent({
         <Label>지도교수명</Label>
         <Input onChange={handleInput} name={"지도교수명"} value={지도교수명} />
       </Row>
-      <Button>등록</Button>
+      <Button onClick={EditButtonClicked}>등록</Button>
     </Container>
   );
 }

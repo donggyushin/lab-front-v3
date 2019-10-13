@@ -1,7 +1,7 @@
 import React from "react";
 import Presenter from "./presenter";
 import { w3cwebsocket as W3CWebSocket } from "websocket";
-import { websocketUri } from "../../../constants/uris";
+import { websocketUri, searchWebSocketUri } from "../../../constants/uris";
 
 class Container extends React.Component {
   componentDidMount() {
@@ -54,7 +54,7 @@ class Container extends React.Component {
 
     switch (k) {
       case "basic":
-        destination = websocketUri + `/basicInfo/${scienceId}`;
+        destination = searchWebSocketUri + `/basicInfo/${scienceId}`;
         const BasicInfoClient = new W3CWebSocket(destination);
         BasicInfoClient.onopen = () => {
           console.log("WebSocket Client Connected");
@@ -74,7 +74,7 @@ class Container extends React.Component {
         };
         break;
       case "career":
-        destination = websocketUri + `/careerInfo/${scienceId}`;
+        destination = searchWebSocketUri + `/careerInfo/${scienceId}`;
         const CareerInfoClient = new W3CWebSocket(destination);
         CareerInfoClient.onopen = () => {
           console.log("WebSocket Client Connected");
@@ -94,7 +94,7 @@ class Container extends React.Component {
         };
         break;
       case "paper":
-        destination = websocketUri + `/paperInfo/${scienceId}`;
+        destination = searchWebSocketUri + `/paperInfo/${scienceId}`;
         const PaperInfoClient = new W3CWebSocket(destination);
         PaperInfoClient.onopen = () => {
           console.log("WebSocket Client Connected");
@@ -114,7 +114,7 @@ class Container extends React.Component {
         };
         break;
       case "property":
-        destination = websocketUri + `/patentInfo/${scienceId}`;
+        destination = searchWebSocketUri + `/patentInfo/${scienceId}`;
         const PatentInfoClient = new W3CWebSocket(destination);
         PatentInfoClient.onopen = () => {
           console.log("WebSocket Client Connected");
@@ -134,7 +134,7 @@ class Container extends React.Component {
         break;
 
       case "degree":
-        destination = websocketUri + `/degreeInfo/${scienceId}`;
+        destination = searchWebSocketUri + `/degreeInfo/${scienceId}`;
         const DegreeInfoClient = new W3CWebSocket(destination);
         DegreeInfoClient.onopen = () => {
           console.log("WebSocket Client Connected");
@@ -155,7 +155,7 @@ class Container extends React.Component {
         break;
 
       default:
-        destination = websocketUri + `/basicInfo/${scienceId}`;
+        destination = searchWebSocketUri + `/basicInfo/${scienceId}`;
         const BasicInfoClient2 = new W3CWebSocket(destination);
         BasicInfoClient2.onopen = () => {
           console.log("WebSocket Client Connected");

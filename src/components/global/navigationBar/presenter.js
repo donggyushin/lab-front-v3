@@ -62,7 +62,7 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
           {/* <a href="/v1/search-num">
             <NavigationText>과학기술인등록번호 조회</NavigationText>
           </a> */}
-          <div
+          {/* <div
             className={styles.container}
             style={{
               zIndex: 3
@@ -79,11 +79,7 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
               </NavigationText>
             </a>
             <div className={styles.menu}>
-              {/* <a href={"#"}>
-                <NavigationText className={styles.item}>
-                  기본정보
-                </NavigationText>
-              </a> */}
+              
               <a href="/v1/add-researcher-degree">
                 <NavigationText className={styles.item}>
                   학력사항
@@ -105,7 +101,7 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
                 </NavigationText>
               </a>
             </div>
-          </div>
+          </div> */}
           <div
             className={styles.container}
             style={{

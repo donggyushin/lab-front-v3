@@ -59,41 +59,27 @@ const Presenter = ({
       <MarginBottom />
       {paperInfo &&
         paperInfo.map(paper => {
-          return (
-            <PaperInfoComponent
-              key={paper.과학기술인등록번호}
-              paperInfo={paper}
-            />
-          );
+          return <PaperInfoComponent key={paper.고유키} paperInfo={paper} />;
         })}
       <MarginBottom />
       {careerInfo &&
         careerInfo.map(career => {
           return (
-            <CareerInfoComponent
-              key={career.과학기술인등록번호}
-              careerInfo={career}
-            />
+            <CareerInfoComponent key={career.고유키} careerInfo={career} />
           );
         })}
       <MarginBottom />
       {degreeInfo &&
         degreeInfo.map(degree => {
           return (
-            <DegreeInfoComponent
-              key={degree.과학기술인등록번호}
-              degreeInfo={degree}
-            />
+            <DegreeInfoComponent key={degree.고유키} degreeInfo={degree} />
           );
         })}
       <MarginBottom />
       {patentInfo &&
         patentInfo.map(patent => {
           return (
-            <PatentInfoComponent
-              key={patent.과학기술인등록번호}
-              patentInfo={patent}
-            />
+            <PatentInfoComponent key={patent.고유키} patentInfo={patent} />
           );
         })}
       <MarginBottom />

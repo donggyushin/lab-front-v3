@@ -18,7 +18,9 @@ const Label = styled.div`
   width: 100px;
 `;
 
-const Input = styled.input``;
+const Input = styled.input`
+  min-width: 300px;
+`;
 
 const Button = styled.button``;
 
@@ -30,7 +32,8 @@ function DetailComponent({
   저자명,
   참여구분,
   학술지명,
-  handleInput
+  handleInput,
+  EditButtonClicked
 }) {
   return (
     <Container>
@@ -70,7 +73,7 @@ function DetailComponent({
         <Label>학술지명</Label>
         <Input value={학술지명} name={"학술지명"} onChange={handleInput} />
       </Row>
-      <Button>등록</Button>
+      <Button onClick={EditButtonClicked}>등록</Button>
     </Container>
   );
 }

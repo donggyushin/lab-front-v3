@@ -2,7 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { w3cwebsocket as W3CWebSocket } from "websocket";
-import { websocketUri } from "../../../../constants/uris";
+import {
+  websocketUri,
+  searchWebSocketUri,
+  updateWebSocketUri
+} from "../../../../constants/uris";
+var WebSocketClient = require("websocket").client;
 
 const Container = styled.div`
   display: flex;
@@ -59,7 +64,7 @@ class EditResearcherBasic extends React.Component {
 
           // 기본실적 불러오기
           const BasicInfoClient = new W3CWebSocket(
-            websocketUri + `/basicInfo/${data.user.scienceId}`
+            searchWebSocketUri + `/basicInfo/${data.user.scienceId}`
           );
           BasicInfoClient.onopen = () => {
             console.log("WebSocket Client Connected");
@@ -177,8 +182,41 @@ class EditResearcherBasic extends React.Component {
       직급,
       휴대폰번호
     } = this.state;
-    console.log(연구자명_국문);
+    const 과학기술인등록번호 = this.state.scienceId;
+
     console.log("Edit button clicked!");
+
+    // 기본실적 불러오기 변경하기
+
+    const BasicInfoClient = new W3CWebSocket(
+      updateWebSocketUri + `/basicInfo/${this.state.scienceId}`
+    );
+    BasicInfoClient.onopen = () => {
+      console.log("WebSocket Client Connected");
+      const body = {
+        소속기관명,
+        소속기관주소,
+        소속부서,
+        연구자명_국문,
+        연구자명_영문,
+        이메일,
+        직급,
+        휴대폰번호,
+        과학기술인등록번호
+      };
+      const parsedData = JSON.stringify(body);
+      BasicInfoClient.send(parsedData);
+      BasicInfoClient.onmessage = message => {
+        const parsedJson = JSON.parse(message.data);
+        console.log("Received data from server: ", parsedJson);
+        if (parsedJson.ok === 1) {
+          window.location.href = "/v1/search";
+        } else {
+          const errorMessage = parsedJson.err;
+          alert(errorMessage);
+        }
+      };
+    };
   };
 }
 

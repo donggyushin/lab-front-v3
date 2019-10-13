@@ -1,7 +1,7 @@
 import React from "react";
 import Presenter from "./presenter";
 import { w3cwebsocket as W3CWebSocket } from "websocket";
-import { websocketUri } from "../../../constants/uris";
+import { websocketUri, searchWebSocketUri } from "../../../constants/uris";
 import axios from "axios";
 
 class Container extends React.Component {
@@ -33,7 +33,7 @@ class Container extends React.Component {
           });
           // 논문실적 불러오기
           const PaperInfoClient = new W3CWebSocket(
-            websocketUri + `/paperInfo/${data.user.scienceId}`
+            searchWebSocketUri + `/paperInfo/${data.user.scienceId}`
           );
           PaperInfoClient.onopen = () => {
             console.log("Paper WebSocket Client Connected");
@@ -57,7 +57,7 @@ class Container extends React.Component {
 
           // 특허실적 불러오기
           const PatentInfoClient = new W3CWebSocket(
-            websocketUri + `/patentInfo/${data.user.scienceId}`
+            searchWebSocketUri + `/patentInfo/${data.user.scienceId}`
           );
           PatentInfoClient.onopen = () => {
             console.log("Patent WebSocket Client Connected");
@@ -82,7 +82,7 @@ class Container extends React.Component {
 
           // 학력실적 불러오기
           const DegreeInfoClient = new W3CWebSocket(
-            websocketUri + `/degreeInfo/${data.user.scienceId}`
+            searchWebSocketUri + `/degreeInfo/${data.user.scienceId}`
           );
           DegreeInfoClient.onopen = () => {
             console.log("Degree WebSocket Client Connected");
@@ -106,7 +106,7 @@ class Container extends React.Component {
 
           // 경력실적 불러오기
           const CareerInfoClient = new W3CWebSocket(
-            websocketUri + `/careerInfo/${data.user.scienceId}`
+            searchWebSocketUri + `/careerInfo/${data.user.scienceId}`
           );
           CareerInfoClient.onopen = () => {
             console.log("Career WebSocket Client Connected");
@@ -131,15 +131,15 @@ class Container extends React.Component {
 
           // 기본실적 불러오기
           const BasicInfoClient = new W3CWebSocket(
-            websocketUri + `/basicInfo/${data.user.scienceId}`
+            searchWebSocketUri + `/basicInfo/${data.user.scienceId}`
           );
           BasicInfoClient.onopen = () => {
             console.log("WebSocket Client Connected");
           };
           BasicInfoClient.onmessage = message => {
             const parsedJson = JSON.parse(message.data);
-            console.log(parsedJson);
-            console.log(parsedJson.연구자명_국문);
+            console.log("기본사항: ", parsedJson);
+
             this.setState({
               basicInfo: parsedJson
             });

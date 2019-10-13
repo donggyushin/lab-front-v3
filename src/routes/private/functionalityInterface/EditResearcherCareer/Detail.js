@@ -18,7 +18,9 @@ const Label = styled.div`
   width: 100px;
 `;
 
-const Input = styled.input``;
+const Input = styled.input`
+  width: 250px;
+`;
 
 const Button = styled.button``;
 
@@ -27,7 +29,8 @@ function DetailComponent({
   근무시작일,
   근무종료일,
   직급,
-  handleInput
+  handleInput,
+  EditButtonClicked
 }) {
   return (
     <Container>
@@ -48,7 +51,7 @@ function DetailComponent({
         <Input name={"직급"} onChange={handleInput} value={직급} />
       </Row>
 
-      <Button>등록</Button>
+      <Button onClick={EditButtonClicked}>등록</Button>
     </Container>
   );
 }

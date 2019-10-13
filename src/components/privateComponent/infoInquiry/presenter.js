@@ -60,12 +60,19 @@ const MarginBottom = styled.div`
   height: 200px;
 `;
 
+const ScrollBarContainer = styled.div`
+  overflow-x: scroll;
+  display: flex;
+  justify-content: flex-start;
+`;
+
 const HorizontalScroll = styled.div`
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
-
-  justify-content: center;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  padding-left: 20px;
 `;
 
 const Presenter = ({
@@ -134,44 +141,40 @@ const Presenter = ({
         {(k === null || k === "basic") && basicInfo.과학기술인등록번호 && (
           <Basic basicInfo={basicInfo} />
         )}
-        <HorizontalScroll>
-          {k === "degree" &&
-            degreeInfos.map(degreeInfo => {
-              return (
-                <Degree
-                  key={degreeInfo.과학기술인등록번호}
-                  degreeInfo={degreeInfo}
-                />
-              );
-            })}
-          {k === "career" &&
-            careerInfos.map(careerInfo => {
-              return (
-                <Career
-                  key={careerInfo.과학기술인등록번호}
-                  careerInfo={careerInfo}
-                />
-              );
-            })}
-          {k === "paper" &&
-            paperInfos.map(paperInfo => {
-              return (
-                <PaperComponent
-                  key={paperInfo.과학기술인등록번호}
-                  paperInfo={paperInfo}
-                />
-              );
-            })}
-          {k === "property" &&
-            patentInfos.map(patentInfo => {
-              return (
-                <PatentComponent
-                  key={patentInfo.과학기술인등록번호}
-                  patentInfo={patentInfo}
-                />
-              );
-            })}
-        </HorizontalScroll>
+        <ScrollBarContainer>
+          <HorizontalScroll>
+            {k === "degree" &&
+              degreeInfos.map(degreeInfo => {
+                return (
+                  <Degree key={degreeInfo.고유키} degreeInfo={degreeInfo} />
+                );
+              })}
+            {k === "career" &&
+              careerInfos.map(careerInfo => {
+                return (
+                  <Career key={careerInfo.고유키} careerInfo={careerInfo} />
+                );
+              })}
+            {k === "paper" &&
+              paperInfos.map(paperInfo => {
+                return (
+                  <PaperComponent
+                    key={paperInfo.고유키}
+                    paperInfo={paperInfo}
+                  />
+                );
+              })}
+            {k === "property" &&
+              patentInfos.map(patentInfo => {
+                return (
+                  <PatentComponent
+                    key={patentInfo.고유키}
+                    patentInfo={patentInfo}
+                  />
+                );
+              })}
+          </HorizontalScroll>
+        </ScrollBarContainer>
       </Row>
       <MarginBottom />
     </>
