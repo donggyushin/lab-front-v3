@@ -2,11 +2,30 @@ import React from "react";
 import Presenter from "./presenter";
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 import { websocketUri, searchWebSocketUri } from "../../../constants/uris";
+import axios from "axios";
 
 class Container extends React.Component {
   componentDidMount() {
     const { k } = this.props;
     console.log("component did mount, and k is ", k);
+    axios
+      .get("/api/user/user", {
+        headers: {
+          token: localStorage.getItem("token")
+        }
+      })
+      .then(res => res.data)
+      .then(data => {
+        if (data.ok === false) {
+          alert(data.error);
+        } else {
+          this.setState({
+            myScienceId: data.user.scienceId,
+            user: data.user
+          });
+        }
+      })
+      .then(err => console.error(err));
   }
 
   state = {
@@ -15,7 +34,9 @@ class Container extends React.Component {
     patentInfos: [],
     degreeInfos: [],
     careerInfos: [],
-    paperInfos: []
+    paperInfos: [],
+    myScienceId: "",
+    user: {}
   };
   render() {
     const {
@@ -24,12 +45,15 @@ class Container extends React.Component {
       careerInfos,
       paperInfos,
       patentInfos,
-      degreeInfos
+      degreeInfos,
+      myScienceId,
+      user
     } = this.state;
     const { k, fn } = this.props;
     const { handleInput, searchButtonClicked } = this;
     return (
       <Presenter
+        user={user}
         searchButtonClicked={searchButtonClicked}
         handleInput={handleInput}
         scienceId={scienceId}
@@ -40,6 +64,7 @@ class Container extends React.Component {
         paperInfos={paperInfos}
         patentInfos={patentInfos}
         degreeInfos={degreeInfos}
+        myScienceId={myScienceId}
       />
     );
   }

@@ -85,7 +85,9 @@ const Presenter = ({
   careerInfos,
   paperInfos,
   patentInfos,
-  degreeInfos
+  degreeInfos,
+  myScienceId,
+  user
 }) => (
   <Container>
     <>
@@ -105,6 +107,15 @@ const Presenter = ({
           {k === "property" && "지적재산권 조회"}
         </MiddleWhiteText>
       </TitleContainer>
+      <Label
+        style={{
+          position: "relative",
+          top: 70
+        }}
+      >
+        {user.name}&nbsp;님의 과학기술인등록번호&nbsp;
+        {myScienceId}
+      </Label>
       <Row
         style={{
           marginTop: 200

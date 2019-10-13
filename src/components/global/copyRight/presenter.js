@@ -59,11 +59,11 @@ const Presenter = ({ isLoggedIn, userLevel }) => (
         )}
       </Column>
       <Column>
-        {isLoggedIn === true && userLevel === "normal" && (
+        {/* {isLoggedIn === true && userLevel === "normal" && (
           <a href="/v1/add-researcher">
             <WhiteBigText>연구자 정보 등록</WhiteBigText>
           </a>
-        )}
+        )} */}
         {isLoggedIn === true && userLevel === "intergrated" && (
           <a href="/v1/remove-manager">
             <WhiteBigText>기관 관리자 삭제</WhiteBigText>
@@ -95,7 +95,7 @@ const Presenter = ({ isLoggedIn, userLevel }) => (
       <Column>
         {isLoggedIn === true && userLevel === "normal" && (
           <>
-            <a href="/v1/edit-researcher?k=basic">
+            <a href="/v1/edit-researcher-basic">
               <WhiteBigText>연구자 정보 수정</WhiteBigText>
             </a>
             <a href="/v1/edit-researcher?k=basic">
@@ -118,9 +118,26 @@ const Presenter = ({ isLoggedIn, userLevel }) => (
       </Column>
       <Column>
         {isLoggedIn === true && userLevel === "normal" && (
-          <a href={"/v1/search"}>
-            <WhiteBigText>조회</WhiteBigText>
-          </a>
+          <>
+            <a href={"/v1/search-researcher?k=basic"}>
+              <WhiteBigText>연구자 정보 조회</WhiteBigText>
+            </a>
+            <a href="/v1/search-researcher?k=basic">
+              <GreyNormalText>기본정보</GreyNormalText>
+            </a>
+            <a href="/v1/search-researcher?k=degree">
+              <GreyNormalText>학력사항</GreyNormalText>
+            </a>
+            <a href="/v1/search-researcher?k=career">
+              <GreyNormalText>경력사항</GreyNormalText>
+            </a>
+            <a href="/v1/search-researcher?k=paper">
+              <GreyNormalText>논문실적</GreyNormalText>
+            </a>
+            <a href="/v1/search-researcher?k=property">
+              <GreyNormalText>특허실적</GreyNormalText>
+            </a>
+          </>
         )}
       </Column>
     </Row>

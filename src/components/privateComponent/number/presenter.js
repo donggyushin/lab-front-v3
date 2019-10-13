@@ -32,7 +32,18 @@ const Inner = styled.div`
   flex-direction: column;
 `;
 
-const Presenter = ({ iconLoading, searchButtonTapped, fn, userLevel }) => (
+const Presenter = ({
+  iconLoading,
+  searchButtonTapped,
+  fn,
+  userLevel,
+  이름,
+  생년월일,
+  이메일,
+  휴대폰번호,
+  handleInput,
+  과학기술인등록번호
+}) => (
   <Container>
     <Row>
       {/* <div
@@ -47,6 +58,10 @@ const Presenter = ({ iconLoading, searchButtonTapped, fn, userLevel }) => (
         <Row>
           <BiggerThanNormal150>이름</BiggerThanNormal150>
           <Input
+            placeholder={"모든 항목을 채워주세요"}
+            value={이름}
+            name={"이름"}
+            onChange={handleInput}
             style={{
               width: 350,
               textAlign: "center"
@@ -56,6 +71,10 @@ const Presenter = ({ iconLoading, searchButtonTapped, fn, userLevel }) => (
         <Row>
           <BiggerThanNormal150>생년월일</BiggerThanNormal150>
           <Input
+            placeholder={"모든 항목을 채워주세요"}
+            value={생년월일}
+            name={"생년월일"}
+            onChange={handleInput}
             style={{
               width: 350,
               textAlign: "center"
@@ -65,6 +84,10 @@ const Presenter = ({ iconLoading, searchButtonTapped, fn, userLevel }) => (
         <Row>
           <BiggerThanNormal150>이메일</BiggerThanNormal150>
           <Input
+            placeholder={"모든 항목을 채워주세요"}
+            value={이메일}
+            name={"이메일"}
+            onChange={handleInput}
             style={{
               width: 350,
               textAlign: "center"
@@ -72,8 +95,12 @@ const Presenter = ({ iconLoading, searchButtonTapped, fn, userLevel }) => (
           />
         </Row>
         <Row>
-          <BiggerThanNormal150>휴대폰 번호</BiggerThanNormal150>
+          <BiggerThanNormal150>휴대폰번호</BiggerThanNormal150>
           <Input
+            placeholder={"모든 항목을 채워주세요"}
+            value={휴대폰번호}
+            name={"휴대폰번호"}
+            onChange={handleInput}
             style={{
               width: 350,
               textAlign: "center"
@@ -86,6 +113,13 @@ const Presenter = ({ iconLoading, searchButtonTapped, fn, userLevel }) => (
     <Button onClick={searchButtonTapped} loading={iconLoading}>
       조회하기
     </Button>
+    <BiggerThanNormal150
+      style={{
+        marginTop: 50
+      }}
+    >
+      {과학기술인등록번호 && 과학기술인등록번호}
+    </BiggerThanNormal150>
   </Container>
 );
 

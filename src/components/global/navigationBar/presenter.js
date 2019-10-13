@@ -59,9 +59,9 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
     >
       {userLevel == "normal" && (
         <>
-          {/* <a href="/v1/search-num">
+          <a href="/v1/search-num">
             <NavigationText>과학기술인등록번호 조회</NavigationText>
-          </a> */}
+          </a>
           {/* <div
             className={styles.container}
             style={{
@@ -149,16 +149,62 @@ const Presenter = ({ isLoggedIn, logout, userLevel }) => (
             </div>
           </div>
 
-          <a href="/v1/search">
+          <div
+            className={styles.container}
+            style={{
+              zIndex: 3
+            }}
+          >
+            <a href="/v1/search-researcher?k=basic">
+              <NavigationText
+                className={styles.text}
+                style={{
+                  marginRight: 15,
+                  marginLeft: 15
+                }}
+              >
+                연구자 정보 조회
+              </NavigationText>
+            </a>
+            <div className={styles.menu}>
+              <a href={"/v1/search-researcher?k=basic"}>
+                <NavigationText className={styles.item}>
+                  기본정보
+                </NavigationText>
+              </a>
+              <a href="/v1/search-researcher?k=degree">
+                <NavigationText className={styles.item}>
+                  학력사항
+                </NavigationText>
+              </a>
+              <a href="/v1/search-researcher?k=career">
+                <NavigationText className={styles.item}>
+                  경력사항
+                </NavigationText>
+              </a>
+              <a href="/v1/search-researcher?k=paper">
+                <NavigationText className={styles.item}>
+                  논문실적
+                </NavigationText>
+              </a>
+              <a href="/v1/search-researcher?k=property">
+                <NavigationText className={styles.item}>
+                  지적 재산권 실적
+                </NavigationText>
+              </a>
+            </div>
+          </div>
+
+          {/* <a href="/v1/search-researcher?k=basic">
             <NavigationText>조회</NavigationText>
-          </a>
+          </a> */}
         </>
       )}
       {userLevel == "agencyAdmin" && (
         <>
-          {/* <a href="/v1/search-num">
+          <a href="/v1/search-num">
             <NavigationText>과학기술인등록번호 조회</NavigationText>
-          </a> */}
+          </a>
 
           <div
             className={styles.container}
